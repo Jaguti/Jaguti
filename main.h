@@ -19,8 +19,13 @@
 #include <iostream>
 #include <SDL/SDL.h>
 
-#define	WINDOW_HEIGHT			/* The window's height */
-#define	WINDOW_WIDTH			/* The window's width */
-#define	WINDOW_BPP			/* The window's Bits Per Pixel */
+#define	WINDOW_HEIGHT 480			/* The window's height */
+#define	WINDOW_WIDTH 640			/* The window's width */
+#define	WINDOW_BPP 32	  		/* The window's Bits Per Pixel */
 
-int drawScreen();
+
+// Declare the surfaces
+SDL_Surface* window = NULL;
+
+// Declare functions
+int drawScreen();                               /* Draw the window */

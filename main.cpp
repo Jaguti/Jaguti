@@ -40,5 +40,5 @@ int drawScreen()
 	
 	SDL_Init( SDL_INIT_EVERYTHING );        /* Initialise SDL */
 
-	window = SDL_SetVideoMode( 640, 480, 32, SDL_SWSURFACE ); /* Set up the window */
+	window = SDL_SetVideoMode( WINDOW_WIDTH, WINDOW_HEIGHT, WINDOW_BPP, SDL_SWSURFACE ); /* Set up the window */
 }
