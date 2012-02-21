@@ -26,19 +26,32 @@
  */
 int main ()
 {
-	drawScreen();
+	if( !drawScreen() )/* Call drawScreen() */
+	{
+		puts("Error: Unable to start SDL");
+		puts("drawScreen() returned 0 to main(), exiting!");
+		exit(EXIT_FAILURE);
+	}
+	SDL_Delay( 5000 ); /* Wait for 3 seconds */
 
-	SDL_Delay( 3000 ); /* Wait for 3 seconds */
-
+	SDL_FreeSurface(background);            /* Free the background from memory */
+	SDL_Quit();                             /* Quit SDL and  */
 	return EXIT_SUCCESS;
 }				/* ----------  end of function main  ---------- */
 
 int drawScreen()
 {
-	// Declare the surfaces
-	SDL_Surface* window = NULL;             /* Initialise the window */
-	
-	SDL_Init( SDL_INIT_EVERYTHING );        /* Initialise SDL */
+	if( SDL_Init( SDL_INIT_EVERYTHING ) != 0 ) /* Initialise SDL */
+	{
+		perror("SDL_Init");
+		return 0;
+	}
 
 	window = SDL_SetVideoMode( WINDOW_WIDTH, WINDOW_HEIGHT, WINDOW_BPP, SDL_SWSURFACE ); /* Set up the window */
+	if(window == NULL)
+	{
+		perror("SDL_SetVideoMode");
+		return 0;
+	}
+	return 1;
 }
