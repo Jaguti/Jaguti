@@ -32,6 +32,13 @@ int main ()
 		puts("drawScreen() returned 0 to main(), exiting!");
 		exit(EXIT_FAILURE);
 	}
+	
+	background = loadImage("./concept-Art/background_for_testing.png"); /* Load background */
+
+	SDL_BlitSurface( background, NULL, window, NULL ); /* Apply image to screen */
+
+	SDL_Flip( window );                     /* Update screen */
+
 	SDL_Delay( 5000 ); /* Wait for 3 seconds */
 
 	SDL_FreeSurface(background);            /* Free the background from memory */
