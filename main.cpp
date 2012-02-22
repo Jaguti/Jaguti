@@ -34,14 +34,28 @@ int main ()
 	}
 	
 	background = loadImage("./concept-Art/background_for_testing.png"); /* Load background */
+	play = loadImage("./concept-Art/Play.png"); /* Load the play button */
+	options = loadImage("./concept-Art/options.png"); /* Load the options button */
+	quit = loadImage("./concept-Art/quit.png"); /* Load the quit button */
+
+	SDL_WM_SetCaption("Jaguti", NULL);     /* Set the window title */
 
 	SDL_BlitSurface( background, NULL, window, NULL ); /* Apply image to screen */
 
 	SDL_Flip( window );                     /* Update screen */
 
-	SDL_Delay( 5000 ); /* Wait for 3 seconds */
+	applySurface( 450, 250, play, window ); /* Apply the play button the the window */
+	applySurface( 400, 325, options, window ); /* Apply the options button to the window */
+	applySurface( 450, 400, quit, window ); /* Apply the quit button to the window */
 
+	SDL_Flip( window );                     /* Update screen */
+
+	SDL_Delay( 5000 ); /* Wait for 3 seconds */
+	
 	SDL_FreeSurface(background);            /* Free the background from memory */
+	SDL_FreeSurface(play);                  /* Free the play button from memory */
+	SDL_FreeSurface(options);               /* Free the options button from memory */
+	SDL_FreeSurface(quit);                  /* Free the quit button from memory */
 	SDL_Quit();                             /* Quit SDL and  */
 	return EXIT_SUCCESS;
 }				/* ----------  end of function main  ---------- */

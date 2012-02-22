@@ -28,6 +28,9 @@
 // Declare the surfaces
 SDL_Surface* window = NULL;
 SDL_Surface* background = NULL;         /* Declare the background */
+SDL_Surface* play = NULL;                       /* Declare the menu's play button*/
+SDL_Surface* options = NULL;                    /* Declare the menu's options button */
+SDL_Surface* quit = NULL;                       /* Declare the menu's quit button */
 
 // Declare functions
 int drawScreen();       /* Draw the window */
@@ -46,8 +49,25 @@ SDL_Surface *loadImage( std::string filename )
 		perror("IMG_Load");
 		return NULL;
 	}
-	postImage = SDL_DisplayFormat(preImage); /* Create the optimized image */
+	postImage = SDL_DisplayFormatAlpha(preImage); /* Create the optimized image */
 	SDL_FreeSurface(preImage);              /* Free the original image from memory */
 
 	return postImage;                       /* Return the optimized image */
+}
+
+bool applySurface( int x, int y, SDL_Surface* src, SDL_Surface* dest )
+{
+	SDL_Rect offset;                        /* Rectangle to hold the offsets */
+
+	// Pass the offsets to the rectangle's offsets
+	offset.x = x;
+	offset.y = y;
+
+	if( SDL_BlitSurface( src, NULL, dest, &offset ) != 0 )
+	{
+		perror("SDL_BlitSurface");
+		return false;
+	}
+	
+	return true;
 }
