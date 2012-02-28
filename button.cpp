@@ -10,7 +10,7 @@
  *       Revision:  none
  *       Compiler:  gcc
  *
- *         Author:  YOUR NAME (), 
+ *         Author:  Håkon Vågsether, Audun Måseidvåg
  *   Organization:  
  *
  * =====================================================================================
@@ -34,4 +34,37 @@ void Button::Draw(int x, int y, int w, int h)
 	rect.w = (Sint16) w;
 	rect.h = (Sint16) h;
 	applySurface( x, y, buttonSurface, window );
+}
+
+void Button::MouseOver()
+{
+	int x = event.motion.x, y = event.motion.y;
+
+	if( ( x > rect.x ) && ( x < rect.x + rect.w ) && ( y > rect.y ) && ( y < rect.y + rect.h ) )
+	{
+		std::cout << "Mouse is over " << "mkay" << std::endl;
+	}
+
+	
+}
+
+void Button::MouseUp()
+{
+	int x = event.motion.x, y = event.motion.y;
+
+	if( ( x > rect.x ) && ( x < rect.x + rect.w ) && ( y > rect.y ) && ( y < rect.y + rect.h ) )
+	{
+		std::cout << "Mouse is up at " << "mkay" << std::endl;
+	}
+	
+}
+
+void Button::MouseDown()
+{
+	int x = event.motion.x, y = event.motion.y;
+
+	if( ( x > rect.x ) && ( x < rect.x + rect.w ) && ( y > rect.y ) && ( y < rect.y + rect.h ) )
+	{
+		std::cout << "Mouse is down at " << "mkay" << std::endl;
+	}	
 }

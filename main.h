@@ -33,10 +33,6 @@ extern bool exiting;
 // Declare the surfaces
 extern SDL_Surface* window;
 extern SDL_Surface* background;         /* Declare the background */
- 
-//SDL_Surface* play = NULL;                       /* Declare the menu's play button*/
-//SDL_Surface* options = NULL;                    /* Declare the menu's options button */
-//SDL_Surface* quit = NULL;                       /* Declare the menu's quit button */
 
 // Declare the buttons
 //Button playButton;
@@ -51,5 +47,8 @@ extern int drawScreen();       /* Draw the window */
 extern SDL_Surface *loadImage( std::string filename );
 extern bool applySurface( int x, int y, SDL_Surface* src, SDL_Surface* dest );
 extern void cleanExit();
+extern void checkMouseOver();
+extern void checkMouseUp();
+extern void checkMouseDown();
 
 #endif

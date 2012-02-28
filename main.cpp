@@ -61,9 +61,32 @@ int main ()
 	{
 		while( SDL_PollEvent( &event ) )
 		{
-			if( event.type == SDL_QUIT )
+			switch( event.type )
 			{
-				exiting=true;
+				case SDL_QUIT:
+					exiting = true;
+					break;
+				
+				case SDL_MOUSEMOTION:
+					checkMouseOver();	
+					break;
+
+				case SDL_MOUSEBUTTONDOWN:
+					checkMouseDown();
+					break;
+
+				case SDL_MOUSEBUTTONUP:
+					checkMouseUp();
+					break;
+
+				/* case SDL_KEYDOWN:
+					// TODO: Do something!
+					break;
+
+				case SDL_KEYUP:
+					// TODO: Do something!
+					break;
+				*/
 			}
 		}
 	}
@@ -133,4 +156,26 @@ void cleanExit()
 {
 	SDL_FreeSurface(background);            /* Free the background from memory */
 	SDL_Quit();                             /* Quit SDL and  */
+}
+
+void checkMouseOver()
+{
+	playButton.MouseOver();
+	optionsButton.MouseOver();
+	quitButton.MouseOver();
+}
+
+void checkMouseUp()
+{
+	playButton.MouseUp();
+	optionsButton.MouseUp();
+	quitButton.MouseUp();
+}
+
+void checkMouseDown()
+{
+	playButton.MouseDown();
+	optionsButton.MouseDown();
+	quitButton.MouseDown();
+
 }

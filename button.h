@@ -5,12 +5,12 @@
  *
  *    Description:  Header file for Jaguti's buttons
  *
- *        Version:  1.0
+ *        Version:  
  *        Created:  24. feb. 2012 kl. 00.05 +0100
  *       Revision:  none
  *       Compiler:  gcc
  *
- *         Author:  YOUR NAME (), 
+ *         Author:  Håkon Vågsether, Audun Måseidvåg
  *   Organization:  
  *
  * =====================================================================================
@@ -28,11 +28,15 @@ class Button
 {
 private:
 	SDL_Surface* buttonSurface;
+	std::string name;
 	SDL_Rect rect;
 public:
 	Button();                /*  */
 	void Load(std::string filename);
 	void Draw( int x, int y, int w, int h );
+	void MouseOver();
+	void MouseUp();
+	void MouseDown();
 };
 
 #endif
