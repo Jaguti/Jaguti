@@ -50,5 +50,8 @@ extern void cleanExit();
 extern void checkMouseOver();
 extern void checkMouseUp();
 extern void checkMouseDown();
+extern void checkKeyUp();
+extern void checkKeyDown();
+
 
 #endif

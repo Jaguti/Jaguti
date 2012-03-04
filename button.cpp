@@ -22,9 +22,10 @@ Button::Button()
 {
 }
 
-void Button::Load(std::string filename)
+void Button::Load(std::string filename, std::string name)
 {
 	buttonSurface = loadImage(filename);
+	buttonName = name;
 }
 
 void Button::Draw(int x, int y, int w, int h)
@@ -42,7 +43,7 @@ void Button::MouseOver()
 
 	if( ( x > rect.x ) && ( x < rect.x + rect.w ) && ( y > rect.y ) && ( y < rect.y + rect.h ) )
 	{
-		std::cout << "Mouse is over " << "mkay" << std::endl;
+		std::cout << "Mouse is over " << buttonName << std::endl;
 	}
 
 	
@@ -54,7 +55,18 @@ void Button::MouseUp()
 
 	if( ( x > rect.x ) && ( x < rect.x + rect.w ) && ( y > rect.y ) && ( y < rect.y + rect.h ) )
 	{
-		std::cout << "Mouse is up at " << "mkay" << std::endl;
+		std::cout << "Mouse is up at " << buttonName << std::endl;
+
+		if(buttonName == "quit")
+		{
+			cleanExit();
+			exit(EXIT_SUCCESS);
+		}
+
+		if(buttonName == "options")
+		{
+			//TODO: Remove this comment!
+		}
 	}
 	
 }
@@ -65,6 +77,11 @@ void Button::MouseDown()
 
 	if( ( x > rect.x ) && ( x < rect.x + rect.w ) && ( y > rect.y ) && ( y < rect.y + rect.h ) )
 	{
-		std::cout << "Mouse is down at " << "mkay" << std::endl;
+		std::cout << "Mouse is down at " << buttonName << std::endl;
 	}	
+}
+
+Button::~Button()
+{
+	
 }

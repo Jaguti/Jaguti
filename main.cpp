@@ -42,9 +42,9 @@ int main ()
 		puts("drawScreen() returned 0 to main(), exiting!");
 		exit(EXIT_FAILURE);
 	}
-	playButton.Load("./concept-Art/Play.png");
-	optionsButton.Load("./concept-Art/options.png");
-	quitButton.Load("./concept-Art/quit.png");
+	playButton.Load("./concept-Art/play.png", "play");
+	optionsButton.Load("./concept-Art/options.png", "options");
+	quitButton.Load("./concept-Art/quit.png", "quit");
 
 	background = loadImage("./concept-Art/background_for_testing.png");
 	SDL_BlitSurface( background, NULL, window, NULL ); /* Apply image to screen */
@@ -79,14 +79,14 @@ int main ()
 					checkMouseUp();
 					break;
 
-				/* case SDL_KEYDOWN:
+				 case SDL_KEYDOWN:
 					// TODO: Do something!
 					break;
 
 				case SDL_KEYUP:
 					// TODO: Do something!
 					break;
-				*/
+				
 			}
 		}
 	}
@@ -177,5 +177,15 @@ void checkMouseDown()
 	playButton.MouseDown();
 	optionsButton.MouseDown();
 	quitButton.MouseDown();
+
+}
+
+void checkKeyUp()
+{
+
+}
+
+void checkKeyDown()
+{
 
 }

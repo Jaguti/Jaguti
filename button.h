@@ -28,15 +28,16 @@ class Button
 {
 private:
 	SDL_Surface* buttonSurface;
-	std::string name;
+	std::string buttonName;
 	SDL_Rect rect;
 public:
 	Button();                /*  */
-	void Load(std::string filename);
+	void Load(std::string filename, std::string name);
 	void Draw( int x, int y, int w, int h );
 	void MouseOver();
 	void MouseUp();
 	void MouseDown();
+	~Button();
 };
 
 #endif
