@@ -65,7 +65,10 @@ void Button::MouseUp()
 
 		if(buttonName == "options")
 		{
-			//TODO: Remove this comment!
+			std::cout << "Options!" << std::endl;
+			background = loadImage("./concept-Art/optionsbackground.png");	//TODO: Remove this comment!
+			SDL_BlitSurface( background, NULL, window, NULL );
+			SDL_Flip(window);
 		}
 	}
 	

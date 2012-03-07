@@ -22,6 +22,7 @@
 #include <iostream>
 #include <SDL/SDL.h>
 #include <SDL/SDL_image.h>
+#include <SDL/SDL_mixer.h>
  
 #define	WINDOW_HEIGHT 600			/* The window's height */
 #define	WINDOW_WIDTH 1000			/* The window's width */
@@ -29,6 +30,8 @@
 
 // Declare a bool for quit
 extern bool exiting;
+
+extern Mix_Music *song;
 
 // Declare the surfaces
 extern SDL_Surface* window;
@@ -53,5 +56,6 @@ extern void checkMouseDown();
 extern void checkKeyUp();
 extern void checkKeyDown();
 
+extern int randum;
 
 #endif

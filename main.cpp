@@ -25,6 +25,7 @@
  */
 SDL_Surface* window;
 SDL_Surface* background;
+SDL_Surface* options;
 SDL_Event event;
 
 bool exiting = false;
@@ -32,6 +33,8 @@ bool exiting = false;
 Button playButton;
 Button optionsButton;
 Button quitButton;
+
+Mix_Music *song;
 
 int main ()
 {
@@ -112,7 +115,17 @@ int drawScreen()
 	}
 	
 	SDL_WM_SetCaption("Jaguti", NULL);     /* Set the window title */
-	
+
+	Mix_OpenAudio( 22050, MIX_DEFAULT_FORMAT, 2, 4096 );
+	song = Mix_LoadMUS( "./musix/trololo.wav" );
+	if( song == NULL )
+	{
+		perror("Mix_LoadMUS");
+	}
+	if(Mix_PlayMusic(song, -1) == -1)
+	{
+		perror("Mix_PlayMusic");
+	}
 	return 1;
 }
 
@@ -154,6 +167,7 @@ SDL_Surface *loadImage( std::string filename )
 
 void cleanExit()
 {
+        /* TODO: ADD MOAR "FREE"S  */
 	SDL_FreeSurface(background);            /* Free the background from memory */
 	SDL_Quit();                             /* Quit SDL and  */
 }
