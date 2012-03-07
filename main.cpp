@@ -33,6 +33,8 @@ bool exiting = false;
 Button playButton;
 Button optionsButton;
 Button quitButton;
+//Button backButton;
+
 
 Mix_Music *song;
 
@@ -48,6 +50,7 @@ int main ()
 	playButton.Load("./concept-Art/play.png", "play");
 	optionsButton.Load("./concept-Art/options.png", "options");
 	quitButton.Load("./concept-Art/quit.png", "quit");
+//	backButton.Load("./concept-Art/back.png", "back");
 
 	background = loadImage("./concept-Art/background_for_testing.png");
 	SDL_BlitSurface( background, NULL, window, NULL ); /* Apply image to screen */
