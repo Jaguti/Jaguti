@@ -69,6 +69,9 @@ void Button::MouseUp()
 			background = loadImage("./concept-Art/optionsbackground.png");	//TODO: Remove this comment!
 			SDL_BlitSurface( background, NULL, window, NULL );
 			//backButton.Draw(?,?,?,?);
+			//toggleEasterEggButton.Draw(?,?,?,?);
+			//toggleSoundButton.Draw(?,?,?,?);
+
 			SDL_Flip(window);
 		}
 	}
@@ -87,5 +90,5 @@ void Button::MouseDown()
 
 Button::~Button()
 {
-	
+	SDL_FreeSurface(buttonSurface);	
 }

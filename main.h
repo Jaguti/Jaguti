@@ -38,9 +38,9 @@ extern SDL_Surface* window;
 extern SDL_Surface* background;         /* Declare the background */
 
 // Declare the buttons
-//Button playButton;
-//Button optionsButton;
-//Button quitButton;
+//extern Button playButton;
+//extern Button optionsButton;
+//extern Button quitButton;
 
 // Declare the event
 extern SDL_Event event;

@@ -34,7 +34,8 @@ Button playButton;
 Button optionsButton;
 Button quitButton;
 //Button backButton;
-
+//Button toggleSoundButton;
+//Button toggleEasterEggButton;
 
 Mix_Music *song;
 
@@ -51,6 +52,8 @@ int main ()
 	optionsButton.Load("./concept-Art/options.png", "options");
 	quitButton.Load("./concept-Art/quit.png", "quit");
 //	backButton.Load("./concept-Art/back.png", "back");
+//	toggleSoundButton.Load("./concept-Art/togglesound.png", "togglesound");
+//	toggleEasterEggButton.Load("./concept-Art/toggleeasteregg.png", "toggleeasteregg");
 
 	background = loadImage("./concept-Art/background_for_testing.png");
 	SDL_BlitSurface( background, NULL, window, NULL ); /* Apply image to screen */

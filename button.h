@@ -40,4 +40,7 @@ public:
 	~Button();
 };
 
+extern Button playButton;
+extern Button optionsButton;
+extern Button quitButton;
 #endif
