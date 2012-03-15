@@ -5,13 +5,8 @@
  *
  *    Description:  Header file for Jaguti's buttons
  *
- *        Version:  
- *        Created:  24. feb. 2012 kl. 00.05 +0100
- *       Revision:  none
- *       Compiler:  gcc
- *
- *         Author:  Håkon Vågsether, Audun Måseidvåg
- *   Organization:  Jaguti
+ * 	  Authors:  Håkon Vågsether <hauk142@gmail.com>, 
+ * 	  	    Audun Måseidvåg <TODO: Add your email address here>
  *
  * =====================================================================================
  */

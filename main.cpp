@@ -3,26 +3,17 @@
  *
  *       Filename:  main.cpp
  *
- *    Description:  Jaguti main.cpp
+ *    Description:  Jaguti's main source file
  *
- *        Version:  
- *        Created:  02/19/2012 11:52:27 PM
- *       Revision:  none
- *       Compiler:  gcc
- *
- *         Author:  Håkon Vågsether, Audun Måseidvåg
- *   Organization:  Jaguti
+ * 	  Authors:  Håkon Vågsether <hauk142@gmail.com>, 
+ * 	  	    Audun Måseidvåg <TODO: Add your email address here>
  *
  * =====================================================================================
  */
 #include "main.h"
 #include "button.h"
-/* 
- * ===  FUNCTION  ======================================================================
- *         Name:  main
- *  Description:  
- * =====================================================================================
- */
+
+
 SDL_Surface* window;
 SDL_Surface* background;
 SDL_Surface* options;

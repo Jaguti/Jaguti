@@ -5,13 +5,8 @@
  *
  *    Description:  Jaguti's main header file
  *
- *        Version:  
- *        Created:  02/20/2012 12:41:47 AM
- *       Revision:  none
- *       Compiler:  gcc
- *
- *         Author:  Håkon Vågsether, Audun Måseidvåg
- *   Organization:  Jaguti
+ * 	  Authors:  Håkon Vågsether <hauk142@gmail.com>, 
+ * 	  	    Audun Måseidvåg <TODO: Add your email address here>
  *
  * =====================================================================================
  */
