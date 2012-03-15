@@ -66,9 +66,6 @@ void Button::MouseUp()
 			//backButton.Draw(?,?,?,?);
 			//toggleEasterEggButton.Draw(?,?,?,?);
 			//toggleSoundButton.Draw(?,?,?,?);
-			playButton.~Button();
-			optionsButton.~Button();
-			quitButton.~Button();
 
 			SDL_Flip(window);
 		}
