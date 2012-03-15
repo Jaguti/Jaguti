@@ -11,7 +11,7 @@
  *       Compiler:  gcc
  *
  *         Author:  Håkon Vågsether, Audun Måseidvåg 
- *   Organization:  
+ *   Organization:  Jaguti
  *
  * =====================================================================================
  */

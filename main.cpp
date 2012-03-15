@@ -128,10 +128,13 @@ int drawScreen()
 	{
 		perror("Mix_LoadMUS");
 	}
+	/*
+	 * TODO: This is commented out because music is annoying. 
 	if(Mix_PlayMusic(song, -1) == -1)
 	{
 		perror("Mix_PlayMusic");
 	}
+	*/
 	return 1;
 }
 
