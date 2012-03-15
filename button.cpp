@@ -66,7 +66,7 @@ void Button::MouseUp()
 			//backButton.Draw(?,?,?,?);
 			//toggleEasterEggButton.Draw(?,?,?,?);
 			//toggleSoundButton.Draw(?,?,?,?);
-
+			//TODO: Remove the main menu's buttons!!
 			SDL_Flip(window);
 		}
 	}
