@@ -23,6 +23,21 @@
 #define	WINDOW_WIDTH 1000			/* The window's width */
 #define	WINDOW_BPP 32	  		/* The window's Bits Per Pixel */
 
+
+/*-----------------------------------------------------------------------------
+ *  			INFORMATION REGARDING WHAT_WINDOW
+ *  
+ *  WHAT_WINDOW is used to keep track of what menu, window or screen the user
+ *  is interacting with. 
+ *  Each values has its own menu:
+ *  		0 - main menu
+ *  		1 - options menu
+ *  		2 - playing the game (without element picker)
+ *  		3 - playing the game (with element picker)
+ *-----------------------------------------------------------------------------*/
+#define WHAT_WINDOW 0
+
+
 // Declare a bool for quit
 extern bool exiting;
 
