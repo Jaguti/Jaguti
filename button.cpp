@@ -52,22 +52,28 @@ void Button::MouseUp()
 	{
 		std::cout << "Mouse is up at " << buttonName << std::endl;
 
-		if(buttonName == "quit")
+		switch(WHAT_WINDOW)
 		{
-			cleanExit();
-			exit(EXIT_SUCCESS);
-		}
-
-		if(buttonName == "options")
-		{
-			std::cout << "Options!" << std::endl;
-			background = loadImage("./concept-Art/optionsbackground.png");	//TODO: Remove this comment!
-			SDL_BlitSurface( background, NULL, window, NULL );
-			//backButton.Draw(?,?,?,?);
-			//toggleEasterEggButton.Draw(?,?,?,?);
-			//toggleSoundButton.Draw(?,?,?,?);
-			//TODO: Remove the main menu's buttons!!
-			SDL_Flip(window);
+			case 0:
+				if(buttonName == "quit")
+				{
+					cleanExit();
+					exit(EXIT_SUCCESS);
+				}
+				
+	
+				if(buttonName == "options")
+				{
+					std::cout << "Options!" << std::endl;
+					background = loadImage("./concept-Art/optionsbackground.png");	//TODO: Remove this comment!
+					SDL_BlitSurface( background, NULL, window, NULL );
+					//backButton.Draw(?,?,?,?);
+					//toggleEasterEggButton.Draw(?,?,?,?);
+					//toggleSoundButton.Draw(?,?,?,?);
+					//TODO: Remove the main menu's buttons!!
+					SDL_Flip(window);
+				}
+				break;
 		}
 	}
 	
