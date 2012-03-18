@@ -67,6 +67,8 @@ void Button::MouseUp()
 					std::cout << "Options!" << std::endl;
 					background = loadImage("./concept-Art/optionsbackground.png");	//TODO: Remove this comment!
 					SDL_BlitSurface( background, NULL, window, NULL );
+					//TODO: Add buttons!
+					WHAT_WINDOW=1; /* We are now officially in the options menu! :D */
 					//backButton.Draw(?,?,?,?);
 					//toggleEasterEggButton.Draw(?,?,?,?);
 					//toggleSoundButton.Draw(?,?,?,?);
