@@ -13,6 +13,19 @@
 #include "button.h"
 #include "main.h"
 
+/*-----------------------------------------------------------------------------
+ *  			INFORMATION REGARDING WHAT_WINDOW
+ *  
+ *  WHAT_WINDOW is used to keep track of what menu, window or screen the user
+ *  is interacting with. 
+ *  Each values has its own menu:
+ *  		0 - main menu
+ *  		1 - options menu
+ *  		2 - playing the game (without element picker)
+ *  		3 - playing the game (with element picker)
+ *-----------------------------------------------------------------------------*/
+int WHAT_WINDOW = 0;
+
 Button::Button()
 {
 }
