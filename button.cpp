@@ -6,9 +6,8 @@
  *    Description:  Source file for Jaguti's buttons
  *
  * 	  Authors:  Håkon Vågsether <hauk142@gmail.com>, 
- * 	  	    Audun Måseidvåg <TODO: Add your email address here>
- * 	  	    Kent Moe <TODO: Add your email address here>
- *
+ * 	  	    Audun Måseidvåg <au.maas@adsl.no>
+ * 	  	    Kent Moe <kentvegard@hotmail.com>
  * =====================================================================================
  */
 #include "button.h"
