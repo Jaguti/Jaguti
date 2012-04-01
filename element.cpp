@@ -13,3 +13,7 @@
  */
 
 #include "element.h"
+
+Element::Element(int type, int x, int y)
+{
+}
