@@ -19,6 +19,8 @@
 #include <SDL/SDL.h>
 #include <SDL/SDL_image.h>
 #include <SDL/SDL_mixer.h>
+
+#define debug(...) puts(__VA_ARGS__) /* Define debug(..) as a macro with parameters which are passed to puts */
  
 #define	WINDOW_HEIGHT 600			/* The window's height */
 #define	WINDOW_WIDTH 1000			/* The window's width */
