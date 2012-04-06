@@ -14,6 +14,7 @@
 
 #include "element.h"
 
+/* The Element constructor */
 Element::Element(int type, int x, int y)
 {
 	/*switch(type)
@@ -33,6 +34,7 @@ Element::Element(int type, int x, int y)
 	}*/
 }
 
-Element::Draw(std::string filename)
+Element::Draw(std::string filename, int x, int y)
 {
+	applySurface(x, y, surf, window);       /* apply the pixel to the window */
 }
