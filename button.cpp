@@ -51,7 +51,7 @@ void Button::MouseOver()
 
 	if( ( x > rect.x ) && ( x < rect.x + rect.w ) && ( y > rect.y ) && ( y < rect.y + rect.h ) )
 	{
-		std::cout << "Mouse is over " << buttonName << std::endl;
+		debug(buttonName);
 	}
 
 	
@@ -63,7 +63,7 @@ void Button::MouseUp()
 
 	if( ( x > rect.x ) && ( x < rect.x + rect.w ) && ( y > rect.y ) && ( y < rect.y + rect.h ) )
 	{
-		std::cout << "Mouse is up at " << buttonName << std::endl;
+		debug(buttonName);
 
 		switch(WHAT_WINDOW)
 		{
@@ -77,7 +77,7 @@ void Button::MouseUp()
 	
 				if(buttonName == "options")
 				{
-					std::cout << "Options!" << std::endl;
+					debug("Options\n");
 					background = loadImage("./concept-Art/optionsbackground.png");	//TODO: Remove this comment!
 					SDL_BlitSurface( background, NULL, window, NULL );
 					//TODO: Add buttons!
@@ -100,7 +100,7 @@ void Button::MouseDown()
 
 	if( ( x > rect.x ) && ( x < rect.x + rect.w ) && ( y > rect.y ) && ( y < rect.y + rect.h ) )
 	{
-		std::cout << "Mouse is down at " << buttonName << std::endl;
+		debug(buttonName);
 	}	
 }
 
