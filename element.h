@@ -18,7 +18,9 @@
 class Element
 {
 private:
+	SDL_Surface surf;
 public:
+	void LoadnDraw(std::string filename);
 };
 
 #endif

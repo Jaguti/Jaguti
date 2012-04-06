@@ -71,7 +71,7 @@ int main ()
 					break;
 				
 				case SDL_MOUSEMOTION:
-					checkMouseOver();	
+					checkMouseOver();
 					break;
 
 				case SDL_MOUSEBUTTONDOWN:
@@ -186,19 +186,18 @@ void checkMouseOver()
 	quitButton.MouseOver();
 }
 
-void checkMouseUp()
-{
-	playButton.MouseUp();
-	optionsButton.MouseUp();
-	quitButton.MouseUp();
-}
-
 void checkMouseDown()
 {
 	playButton.MouseDown();
 	optionsButton.MouseDown();
 	quitButton.MouseDown();
+}
 
+void checkMouseUp()
+{
+	playButton.MouseUp();
+	optionsButton.MouseUp();
+	quitButton.MouseUp();
 }
 
 void checkKeyUp()
