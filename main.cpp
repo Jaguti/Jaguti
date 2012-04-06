@@ -58,6 +58,8 @@ int main ()
 
 	SDL_Flip( window );                     /* Update screen */
 
+	/* This, my friends, is commonly known as the */
+	/*     		   MAIN LOOP 		      */
 	while( exiting == false )
 	{
 		while( SDL_PollEvent( &event ) )
@@ -89,6 +91,10 @@ int main ()
 					break;
 				
 			}
+		}
+		if(WHAT_WINDOW==2 || WHAT_WINDOW==3)
+		{
+			/* Move shizz */
 		}
 	}
 
