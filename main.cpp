@@ -179,12 +179,14 @@ void cleanExit()
 	SDL_Quit();                             /* Quit SDL and  */
 }
 
+/* 
 void checkMouseOver()
 {
 	playButton.MouseOver();
 	optionsButton.MouseOver();
 	quitButton.MouseOver();
 }
+
 
 void checkMouseDown()
 {
@@ -209,3 +211,4 @@ void checkKeyDown()
 {
 
 }
+*/
