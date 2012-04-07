@@ -58,8 +58,8 @@ int main ()
 
 	SDL_Flip( window );                     /* Update screen */
 
-	/* This, my friends, is commonly known as the */
-	/*     		   MAIN LOOP 		      */
+	/* This, my friends, is known as the */
+	/*     		   MAIN LOOP 	     */
 	while( exiting == false )
 	{
 		while( SDL_PollEvent( &event ) )
@@ -71,15 +71,31 @@ int main ()
 					break;
 				
 				case SDL_MOUSEMOTION:
+					if(!WHAT_WINDOW)
+					{
+						playButton.MouseOver();
+						optionsButton.MouseOver();
+						quitButton.MouseOver();
+					}
 					checkMouseOver();
 					break;
 
 				case SDL_MOUSEBUTTONDOWN:
-					checkMouseDown();
+					if(!WHAT_WINDOW)
+					{
+						playButton.MouseDown();
+						optionsButton.MouseDown();
+						quitButton.MouseDown();
+					}
 					break;
 
 				case SDL_MOUSEBUTTONUP:
-					checkMouseUp();
+					if(!WHAT_WINDOW)
+					{
+						playButton.MouseUp();
+						optionsButton.MouseUp();
+						quitButton.MouseUp();
+					}
 					break;
 
 				 case SDL_KEYDOWN:
@@ -179,27 +195,7 @@ void cleanExit()
 	SDL_Quit();                             /* Quit SDL and  */
 }
 
-void checkMouseOver()
-{
-	playButton.MouseOver();
-	optionsButton.MouseOver();
-	quitButton.MouseOver();
-}
-
-void checkMouseDown()
-{
-	playButton.MouseDown();
-	optionsButton.MouseDown();
-	quitButton.MouseDown();
-}
-
-void checkMouseUp()
-{
-	playButton.MouseUp();
-	optionsButton.MouseUp();
-	quitButton.MouseUp();
-}
-
+/* 
 void checkKeyUp()
 {
 
@@ -209,3 +205,4 @@ void checkKeyDown()
 {
 
 }
+*/
