@@ -77,7 +77,6 @@ int main ()
 						optionsButton.MouseOver();
 						quitButton.MouseOver();
 					}
-					checkMouseOver();
 					break;
 
 				case SDL_MOUSEBUTTONDOWN:

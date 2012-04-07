@@ -25,11 +25,11 @@ class Button
 {
 private:
 	SDL_Surface* buttonSurface;
-	std::string buttonName;
+	const char* buttonName;
 	SDL_Rect rect;
 public:
 	Button();                /*  */
-	void Load(std::string filename, std::string name);
+	void Load(const char * filename, const char* name);
 	void Draw( int x, int y, int w, int h );
 	void MouseOver();
 	void MouseUp();

@@ -20,7 +20,7 @@ class Element
 private:
 	SDL_Surface* surf;
 public:
-	void Draw(std::string filename, int x, int y);
+	void Draw(const char * filename, int x, int y);
 };
 
 #endif

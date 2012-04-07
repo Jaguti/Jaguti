@@ -30,7 +30,7 @@ Button::Button()
 {
 }
 
-void Button::Load(std::string filename, std::string name)
+void Button::Load(const char * filename, const char* name)
 {
 	buttonSurface = loadImage(filename);
 	buttonName = name;
@@ -51,7 +51,7 @@ void Button::MouseOver()
 
 	if( ( x > rect.x ) && ( x < rect.x + rect.w ) && ( y > rect.y ) && ( y < rect.y + rect.h ) )
 	{
-		debug(buttonName);
+		debug((const char *)buttonName);
 	}
 
 	

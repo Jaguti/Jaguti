@@ -34,7 +34,7 @@ Element::Element(int type, int x, int y)
 	}*/
 }
 
-Element::Draw(std::string filename, int x, int y)
+Element::Draw(const char * filename, int x, int y)
 {
 	applySurface(x, y, surf, window);       /* apply the pixel to the window */
 }
