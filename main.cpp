@@ -60,14 +60,15 @@ int main ()
 
 	/* This, my friends, is known as the */
 	/*     		   MAIN LOOP 	     */
-	while( exiting == false )
+	while(1)
 	{
 		while( SDL_PollEvent( &event ) )
 		{
 			switch( event.type )
 			{
 				case SDL_QUIT:
-					exiting = true;
+					cleanExit();
+					exit(EXIT_SUCCESS);
 					break;
 				
 				case SDL_MOUSEMOTION:
@@ -192,6 +193,7 @@ void cleanExit()
         /* TODO: ADD MOAR "FREE"S  */
 	SDL_FreeSurface(background);            /* Free the background from memory */
 	SDL_Quit();                             /* Quit SDL and  */
+
 }
 
 /* 
