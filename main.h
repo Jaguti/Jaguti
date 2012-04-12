@@ -48,7 +48,7 @@ extern SDL_Event event;
 extern int drawScreen();       /* Draw the window */
 extern SDL_Surface *loadImage( std::string filename );
 extern bool applySurface( int x, int y, SDL_Surface* src, SDL_Surface* dest );
-extern void cleanExit();
+extern void cleanUp();
 /* extern void checkMouseOver();
 extern void checkMouseUp();
 extern void checkMouseDown();

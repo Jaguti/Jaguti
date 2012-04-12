@@ -67,7 +67,7 @@ int main ()
 			switch( event.type )
 			{
 				case SDL_QUIT:
-					cleanExit();
+					cleanUp();
 					exit(EXIT_SUCCESS);
 					break;
 				
@@ -114,7 +114,7 @@ int main ()
 		}
 	}
 
-	cleanExit();                            /* clean it all up! */
+	cleanUp();                            /* clean it all up! */
 
 	return EXIT_SUCCESS;
 }				/* ----------  end of function main  ---------- */
@@ -188,7 +188,7 @@ SDL_Surface *loadImage( std::string filename )
 	return postImage;                       /* Return the optimized image */
 }
 
-void cleanExit()
+void cleanUp()
 {
         /* TODO: ADD MOAR "FREE"S  */
 	SDL_FreeSurface(background);            /* Free the background from memory */

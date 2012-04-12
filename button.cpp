@@ -70,7 +70,7 @@ void Button::MouseUp()
 			case 0:
 				if(buttonName == "quit")
 				{
-					cleanExit();
+					cleanUp();
 					exit(EXIT_SUCCESS);
 				}
 				
