@@ -126,7 +126,13 @@ int drawScreen()
 		return 0;
 	}
 
-	window = SDL_SetVideoMode( WINDOW_WIDTH, WINDOW_HEIGHT, WINDOW_BPP, SDL_SWSURFACE ); /* Set up the window */
+	SDL_GL_SetAttribute( SDL_GL_RED_SIZE, 8);
+	SDL_GL_SetAttribute( SDL_GL_BLUE_SIZE, 8);
+	SDL_GL_SetAttribute( SDL_GL_GREEN_SIZE, 8);
+	SDL_GL_SetAttribute( SDL_GL_DEPTH_SIZE, 16);
+	
+
+	window = SDL_SetVideoMode( WINDOW_WIDTH, WINDOW_HEIGHT, WINDOW_BPP, SDL_FULLSCREEN ); /* Set up the window */
 	if(window == NULL)
 	{
 		perror("SDL_SetVideoMode");
