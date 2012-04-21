@@ -40,4 +40,5 @@ public:
 extern Button playButton;
 extern Button optionsButton;
 extern Button quitButton;
+extern Button backButton;
 #endif

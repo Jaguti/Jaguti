@@ -14,6 +14,7 @@
 #ifndef MAIN_H
 #define MAIN_H
 
+#include "button.h"
 #include <stdlib.h>
 #include <iostream>
 #include <SDL/SDL.h>

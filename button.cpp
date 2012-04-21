@@ -81,15 +81,40 @@ void Button::MouseUp()
 					debug("Options\n");
 					background = loadImage("./concept-Art/optionsbackground.png");	//TODO: Remove this comment!
 					SDL_BlitSurface( background, NULL, window, NULL );
+					SDL_Flip(window);
 					//TODO: Add buttons!
 					WHAT_WINDOW=1; /* We are now officially in the options menu! :D */
-					//backButton.Draw(?,?,?,?);
+					backButton.Draw(450, 250, 149, 50);
 					//toggleEasterEggButton.Draw(?,?,?,?);
 					//toggleSoundButton.Draw(?,?,?,?);
 					//TODO: Remove the main menu's buttons!!
 					SDL_Flip(window);
 				}
+
+				if(!strcmp(buttonName, "play"))
+				{
+					debug("Play\n");
+					background = loadImage("./concept-Art/playBackground.png");
+					SDL_BlitSurface( background, NULL, window, NULL );
+					WHAT_WINDOW=2;
+					SDL_Flip(window);
+				}
 				break;
+			case 1:
+				if(!strcmp(buttonName, "back"))
+				{
+					debug("Back!\n");
+					background = loadImage("./concept-Art/background_for_testing.png");
+					SDL_BlitSurface( background, NULL, window, NULL );
+					SDL_Flip(window);
+
+					WHAT_WINDOW=0;
+					playButton.Draw( 450, 250, 118, 58 );
+					optionsButton.Draw( 400, 325, 220, 58 );
+					quitButton.Draw( 450, 400, 116, 56 );
+
+					SDL_Flip(window);
+				}
 		}
 	}
 	

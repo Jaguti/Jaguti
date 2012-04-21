@@ -25,7 +25,7 @@ bool exiting = false;
 Button playButton;
 Button optionsButton;
 Button quitButton;
-//Button backButton;
+Button backButton;
 //Button toggleSoundButton;
 //Button toggleEasterEggButton;
 
@@ -43,7 +43,7 @@ int main ()
 	playButton.Load("./concept-Art/play.png", "play");
 	optionsButton.Load("./concept-Art/options.png", "options");
 	quitButton.Load("./concept-Art/quit.png", "quit");
-//	backButton.Load("./concept-Art/back.png", "back");
+	backButton.Load("./concept-Art/back.png", "back");
 //	toggleSoundButton.Load("./concept-Art/togglesound.png", "togglesound");
 //	toggleEasterEggButton.Load("./concept-Art/toggleeasteregg.png", "toggleeasteregg");
 
@@ -77,6 +77,11 @@ int main ()
 						playButton.MouseOver();
 						optionsButton.MouseOver();
 						quitButton.MouseOver();
+						backButton.MouseOver();
+					}
+					if(WHAT_WINDOW)
+					{
+						backButton.MouseOver();
 					}
 					break;
 
@@ -87,6 +92,10 @@ int main ()
 						optionsButton.MouseDown();
 						quitButton.MouseDown();
 					}
+					if(WHAT_WINDOW)
+					{
+						backButton.MouseDown();
+					}
 					break;
 
 				case SDL_MOUSEBUTTONUP:
@@ -95,6 +104,11 @@ int main ()
 						playButton.MouseUp();
 						optionsButton.MouseUp();
 						quitButton.MouseUp();
+						backButton.MouseUp();
+					}
+					if(WHAT_WINDOW)
+					{
+						backButton.MouseUp();
 					}
 					break;
 
@@ -102,7 +116,7 @@ int main ()
 					// TODO: Do something!
 					break;
 
-				case SDL_KEYUP:
+				 case SDL_KEYUP:
 					// TODO: Do something!
 					break;
 				
