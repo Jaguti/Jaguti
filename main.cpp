@@ -136,19 +136,18 @@ int drawScreen()
 	
 	SDL_WM_SetCaption("Jaguti", NULL);     /* Set the window title */
 
-	/*Mix_OpenAudio( 22050, MIX_DEFAULT_FORMAT, 2, 4096 );
-	song = Mix_LoadMUS( "./musix/trololo.wav" );
-	if( song == NULL )
-	{
-		perror("Mix_LoadMUS");
-	}
+	//Mix_OpenAudio( 22050, MIX_DEFAULT_FORMAT, 2, 4096 );
+	//song = Mix_LoadMUS( "./musix/trololo.wav" );
+	//if( song == NULL )
+	//{
+	//	perror("Mix_LoadMUS");
+	//}
 	/*
 	 * TODO: This is commented out because music is annoying. 
 	if(Mix_PlayMusic(song, -1) == -1)
 	{
 		perror("Mix_PlayMusic");
 	}
-	*/
 	*/
 	return 1;
 }
