@@ -136,7 +136,7 @@ int drawScreen()
 	
 	SDL_WM_SetCaption("Jaguti", NULL);     /* Set the window title */
 
-	Mix_OpenAudio( 22050, MIX_DEFAULT_FORMAT, 2, 4096 );
+	/*Mix_OpenAudio( 22050, MIX_DEFAULT_FORMAT, 2, 4096 );
 	song = Mix_LoadMUS( "./musix/trololo.wav" );
 	if( song == NULL )
 	{
@@ -148,6 +148,7 @@ int drawScreen()
 	{
 		perror("Mix_PlayMusic");
 	}
+	*/
 	*/
 	return 1;
 }
