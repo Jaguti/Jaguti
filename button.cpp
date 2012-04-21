@@ -6,8 +6,9 @@
  *    Description:  Source file for Jaguti's buttons
  *
  * 	  Authors:  Håkon Vågsether <hauk142@gmail.com>, 
- * 	  	    Audun Måseidvåg <au.maas@adsl.no>
+ * 	  	    Audun Måseidvåg <au.maas@adsl.no>,
  * 	  	    Kent Moe <kentvegard@hotmail.com>
+ *
  * =====================================================================================
  */
 #include "button.h"
@@ -68,14 +69,14 @@ void Button::MouseUp()
 		switch(WHAT_WINDOW)
 		{
 			case 0:
-				if(buttonName == "quit")
+				if(!strcmp(buttonName, "quit"))
 				{
 					cleanUp();
 					exit(EXIT_SUCCESS);
 				}
 				
 	
-				if(buttonName == "options")
+				if(!strcmp(buttonName, "options"))
 				{
 					debug("Options\n");
 					background = loadImage("./concept-Art/optionsbackground.png");	//TODO: Remove this comment!

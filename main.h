@@ -6,7 +6,7 @@
  *    Description:  Jaguti's main header file
  *
  * 	  Authors:  Håkon Vågsether <hauk142@gmail.com>, 
- * 	  	    Audun Måseidvåg <au.maas@adsl.no>
+ * 	  	    Audun Måseidvåg <au.maas@adsl.no>,
  * 	  	    Kent Moe <kentvegard@hotmail.com>
  *
  * =====================================================================================
@@ -27,6 +27,14 @@
 #define	WINDOW_WIDTH 1000			/* The window's width */
 #define	WINDOW_BPP 32	  		/* The window's Bits Per Pixel */
 
+/* 
+typedef struct
+{
+	SDL_Surface *surf;
+} menu;
+
+menu WINDOW[4];
+*/
 // Declare a bool for quit
 extern bool exiting;
 
@@ -56,6 +64,5 @@ extern void checkKeyUp();
 extern void checkKeyDown();
 */
 
-extern int randum;
 
 #endif
