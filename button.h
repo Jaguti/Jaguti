@@ -41,4 +41,5 @@ extern Button playButton;
 extern Button optionsButton;
 extern Button quitButton;
 extern Button backButton;
+extern Button toggleSoundButton;
 #endif

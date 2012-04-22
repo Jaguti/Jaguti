@@ -84,9 +84,9 @@ void Button::MouseUp()
 					SDL_Flip(window);
 					//TODO: Add buttons!
 					WHAT_WINDOW=1; /* We are now officially in the options menu! :D */
-					backButton.Draw(450, 250, 149, 50);
+					backButton.Draw(450,400, 149, 50);
+					toggleSoundButton.Draw(250, 250, 462, 62);
 					//toggleEasterEggButton.Draw(?,?,?,?);
-					//toggleSoundButton.Draw(?,?,?,?);
 					//TODO: Remove the main menu's buttons!!
 					SDL_Flip(window);
 				}
@@ -115,6 +115,13 @@ void Button::MouseUp()
 
 					SDL_Flip(window);
 				}
+
+				if(!strcmp(buttonName, "sound"))
+				{
+					debug("ToggleSound!\n");
+					//TODO: Toggle the sound!
+				}
+				break;
 		}
 	}
 	
