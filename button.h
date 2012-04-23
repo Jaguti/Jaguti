@@ -42,4 +42,5 @@ extern Button optionsButton;
 extern Button quitButton;
 extern Button backButton;
 extern Button toggleSoundButton;
+extern Button toggleEasterEggButton;
 #endif

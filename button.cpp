@@ -85,8 +85,8 @@ void Button::MouseUp()
 					//TODO: Add buttons!
 					WHAT_WINDOW=1; /* We are now officially in the options menu! :D */
 					backButton.Draw(450,400, 149, 50);
-					toggleSoundButton.Draw(250, 250, 462, 62);
-					//toggleEasterEggButton.Draw(?,?,?,?);
+					toggleSoundButton.Draw(290, 250, 462, 62);
+					toggleEasterEggButton.Draw(200, 328, 658, 62);
 					//TODO: Remove the main menu's buttons!!
 					SDL_Flip(window);
 				}
@@ -114,6 +114,12 @@ void Button::MouseUp()
 					quitButton.Draw( 450, 400, 116, 56 );
 
 					SDL_Flip(window);
+				}
+
+				if(!strcmp(buttonName, "toggleeasteregg"))
+				{
+					debug("ToggleEasterEgg\n");
+					//TODO: Toggle Dolan Mode!
 				}
 
 				if(!strcmp(buttonName, "sound"))
