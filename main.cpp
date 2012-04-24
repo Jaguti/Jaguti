@@ -6,7 +6,7 @@
  *    Description:  Jaguti's main source file
  *
  * 	  Authors:  Håkon Vågsether <hauk142@gmail.com>, 
- * 	  	    Audun Måseidvåg <au.maas@adsl.no>
+ * 	  	    Audun Måseidvåg <au.maas@adsl.no>,
  * 	  	    Kent Moe <kentvegard@hotmail.com>
  *
  * =====================================================================================
@@ -25,9 +25,9 @@ bool exiting = false;
 Button playButton;
 Button optionsButton;
 Button quitButton;
-//Button backButton;
-//Button toggleSoundButton;
-//Button toggleEasterEggButton;
+Button backButton;
+Button toggleSoundButton;
+Button toggleEasterEggButton;
 
 Mix_Music *song;
 
@@ -43,9 +43,9 @@ int main ()
 	playButton.Load("./concept-Art/play.png", "play");
 	optionsButton.Load("./concept-Art/options.png", "options");
 	quitButton.Load("./concept-Art/quit.png", "quit");
-//	backButton.Load("./concept-Art/back.png", "back");
-//	toggleSoundButton.Load("./concept-Art/togglesound.png", "togglesound");
-//	toggleEasterEggButton.Load("./concept-Art/toggleeasteregg.png", "toggleeasteregg");
+	backButton.Load("./concept-Art/back.png", "back");
+	toggleSoundButton.Load("./concept-Art/toggleSound.png", "sound");
+	toggleEasterEggButton.Load("./concept-Art/toggleEasterEgg.png", "toggleeasteregg");
 
 	background = loadImage("./concept-Art/background_for_testing.png");
 	SDL_BlitSurface( background, NULL, window, NULL ); /* Apply image to screen */
@@ -60,14 +60,15 @@ int main ()
 
 	/* This, my friends, is known as the */
 	/*     		   MAIN LOOP 	     */
-	while( exiting == false )
+	while(1)
 	{
 		while( SDL_PollEvent( &event ) )
 		{
 			switch( event.type )
 			{
 				case SDL_QUIT:
-					exiting = true;
+					cleanUp();
+					exit(EXIT_SUCCESS);
 					break;
 				
 				case SDL_MOUSEMOTION:
@@ -76,6 +77,12 @@ int main ()
 						playButton.MouseOver();
 						optionsButton.MouseOver();
 						quitButton.MouseOver();
+					}
+					if(WHAT_WINDOW)
+					{
+						backButton.MouseOver();
+						toggleSoundButton.MouseOver();
+						toggleEasterEggButton.MouseOver();
 					}
 					break;
 
@@ -86,6 +93,12 @@ int main ()
 						optionsButton.MouseDown();
 						quitButton.MouseDown();
 					}
+					if(WHAT_WINDOW)
+					{
+						backButton.MouseDown();
+						toggleSoundButton.MouseDown();
+						toggleEasterEggButton.MouseDown();
+					}
 					break;
 
 				case SDL_MOUSEBUTTONUP:
@@ -95,13 +108,19 @@ int main ()
 						optionsButton.MouseUp();
 						quitButton.MouseUp();
 					}
+					if(WHAT_WINDOW)
+					{
+						backButton.MouseUp();
+						toggleSoundButton.MouseUp();
+						toggleEasterEggButton.MouseUp();
+					}
 					break;
 
 				 case SDL_KEYDOWN:
 					// TODO: Do something!
 					break;
 
-				case SDL_KEYUP:
+				 case SDL_KEYUP:
 					// TODO: Do something!
 					break;
 				
@@ -113,7 +132,7 @@ int main ()
 		}
 	}
 
-	cleanExit();                            /* clean it all up! */
+	cleanUp();                            /* clean it all up! */
 
 	return EXIT_SUCCESS;
 }				/* ----------  end of function main  ---------- */
@@ -141,12 +160,12 @@ int drawScreen()
 	
 	SDL_WM_SetCaption("Jaguti", NULL);     /* Set the window title */
 
-	Mix_OpenAudio( 22050, MIX_DEFAULT_FORMAT, 2, 4096 );
-	song = Mix_LoadMUS( "./musix/trololo.wav" );
-	if( song == NULL )
-	{
-		perror("Mix_LoadMUS");
-	}
+	//Mix_OpenAudio( 22050, MIX_DEFAULT_FORMAT, 2, 4096 );
+	//song = Mix_LoadMUS( "./musix/trololo.wav" );
+	//if( song == NULL )
+	//{
+	//	perror("Mix_LoadMUS");
+	//}
 	/*
 	 * TODO: This is commented out because music is annoying. 
 	if(Mix_PlayMusic(song, -1) == -1)
@@ -193,11 +212,12 @@ SDL_Surface *loadImage( std::string filename )
 	return postImage;                       /* Return the optimized image */
 }
 
-void cleanExit()
+void cleanUp()
 {
         /* TODO: ADD MOAR "FREE"S  */
 	SDL_FreeSurface(background);            /* Free the background from memory */
 	SDL_Quit();                             /* Quit SDL and  */
+
 }
 
 /* 

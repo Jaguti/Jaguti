@@ -1,9 +1,9 @@
 /*
  * =====================================================================================
  *
- *       Filename:  element.h
+ *       Filename:  menu.cpp
  *
- *    Description:  Header file for Jaguti's elements
+ *    Description:  Source file for Jaguti's menus
  *
  * 	  Authors:  Håkon Vågsether <hauk142@gmail.com>, 
  * 	  	    Audun Måseidvåg <au.maas@adsl.no>,
@@ -12,15 +12,11 @@
  * =====================================================================================
  */
 
-#ifndef ELEMENT_H
-#define ELEMENT_H
-
-class Element
+Menu::Menu(struct menu *menuStrct)
 {
-private:
-	SDL_Surface* surf;
-public:
-	void Draw(const char * filename, int x, int y);
-};
+}
 
-#endif
+Menu::Draw()
+{
+	
+}

@@ -6,7 +6,7 @@
  *    Description:  Jaguti's main header file
  *
  * 	  Authors:  Håkon Vågsether <hauk142@gmail.com>, 
- * 	  	    Audun Måseidvåg <au.maas@adsl.no>
+ * 	  	    Audun Måseidvåg <au.maas@adsl.no>,
  * 	  	    Kent Moe <kentvegard@hotmail.com>
  *
  * =====================================================================================
@@ -14,6 +14,7 @@
 #ifndef MAIN_H
 #define MAIN_H
 
+#include "button.h"
 #include <stdlib.h>
 #include <iostream>
 #include <SDL/SDL.h>
@@ -27,6 +28,14 @@
 #define	WINDOW_WIDTH 1000			/* The window's width */
 #define	WINDOW_BPP 32	  		/* The window's Bits Per Pixel */
 
+/* 
+typedef struct
+{
+	SDL_Surface *surf;
+} menu;
+
+menu WINDOW[4];
+*/
 // Declare a bool for quit
 extern bool exiting;
 
@@ -48,7 +57,7 @@ extern SDL_Event event;
 extern int drawScreen();       /* Draw the window */
 extern SDL_Surface *loadImage( std::string filename );
 extern bool applySurface( int x, int y, SDL_Surface* src, SDL_Surface* dest );
-extern void cleanExit();
+extern void cleanUp();
 /* extern void checkMouseOver();
 extern void checkMouseUp();
 extern void checkMouseDown();
@@ -56,6 +65,5 @@ extern void checkKeyUp();
 extern void checkKeyDown();
 */
 
-extern int randum;
 
 #endif
