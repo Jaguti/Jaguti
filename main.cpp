@@ -139,7 +139,7 @@ int main ()
 
 int drawScreen()
 {
-	if( SDL_Init( SDL_INIT_EVERYTHING ) != 0 ) /* Initialise SDL */
+	if( SDL_Init( SDL_INIT_VIDEO|SDL_INIT_AUDIO ) != 0 ) /* Initialise SDL */
 	{
 		perror("SDL_Init");
 		return 0;
