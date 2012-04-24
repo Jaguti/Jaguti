@@ -149,7 +149,7 @@ int drawScreen()
 
 	SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
 
-	window = SDL_SetVideoMode( WINDOW_WIDTH, WINDOW_HEIGHT, WINDOW_BPP, SDL_SWSURFACE ); /* Set up the window */
+	window = SDL_SetVideoMode( WINDOW_WIDTH, WINDOW_HEIGHT, WINDOW_BPP, SDL_OPENGL ); /* Set up the window */
 	if(window == NULL)
 	{
 		perror("SDL_SetVideoMode");
@@ -157,6 +157,8 @@ int drawScreen()
 	}
 	
 	SDL_WM_SetCaption("Jaguti", NULL);     /* Set the window title */
+
+	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 
 	//Mix_OpenAudio( 22050, MIX_DEFAULT_FORMAT, 2, 4096 );
 	//song = Mix_LoadMUS( "./musix/trololo.wav" );
