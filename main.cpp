@@ -123,6 +123,8 @@ int main ()
 				 case SDL_KEYUP:
 					// TODO: Do something!
 					break;
+				default:
+					break;
 				
 			}
 		}
@@ -144,6 +146,8 @@ int drawScreen()
 		perror("SDL_Init");
 		return 0;
 	}
+
+	SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
 
 	window = SDL_SetVideoMode( WINDOW_WIDTH, WINDOW_HEIGHT, WINDOW_BPP, SDL_SWSURFACE ); /* Set up the window */
 	if(window == NULL)
