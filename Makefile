@@ -17,3 +17,4 @@ all : button.o main.o
 
 clean :
 	rm jaguti
+	rm main.o button.o
