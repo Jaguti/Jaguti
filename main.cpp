@@ -50,13 +50,13 @@ int main ()
 	background = loadImage("./concept-Art/background_for_testing.png");
 	SDL_BlitSurface( background, NULL, window, NULL ); /* Apply image to screen */
 
-	SDL_Flip( window );                     /* Update screen */
+	SDL_GL_SwapBuffers();                     /* Update screen */
 
 	playButton.Draw( 450, 250, 118, 58 );
 	optionsButton.Draw( 400, 325, 220, 58 );
 	quitButton.Draw( 450, 400, 116, 56 );
 
-	SDL_Flip( window );                     /* Update screen */
+	SDL_GL_SwapBuffers();                   /* Update screen */
 
 	/* This, my friends, is known as the */
 	/*     		   MAIN LOOP 	     */
@@ -127,6 +127,7 @@ int main ()
 					break;
 				
 			}
+		SDL_GL_SwapBuffers();
 		}
 		if(WHAT_WINDOW==2 || WHAT_WINDOW==3)
 		{
@@ -141,7 +142,7 @@ int main ()
 
 int drawScreen()
 {
-	if( SDL_Init( SDL_INIT_VIDEO|SDL_INIT_AUDIO ) != 0 ) /* Initialise SDL */
+	if( SDL_Init( SDL_INIT_VIDEO | SDL_INIT_AUDIO ) != 0 ) /* Initialise SDL */
 	{
 		perror("SDL_Init");
 		return 0;
@@ -158,7 +159,10 @@ int drawScreen()
 	
 	SDL_WM_SetCaption("Jaguti", NULL);     /* Set the window title */
 
-	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+	glClearColor(0.0, 0.0, 0.0, 0.0);
+	glClear(GL_COLOR_BUFFER_BIT);
+
+	SDL_GL_SwapBuffers();
 
 	//Mix_OpenAudio( 22050, MIX_DEFAULT_FORMAT, 2, 4096 );
 	//song = Mix_LoadMUS( "./musix/trololo.wav" );
