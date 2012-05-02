@@ -164,6 +164,10 @@ int drawScreen()
 
 	SDL_GL_SwapBuffers();
 
+	glClear(GL_COLOR_BUFFER_BIT);
+
+	SDL_GL_SwapBuffers();
+
 	//Mix_OpenAudio( 22050, MIX_DEFAULT_FORMAT, 2, 4096 );
 	//song = Mix_LoadMUS( "./musix/trololo.wav" );
 	//if( song == NULL )
