@@ -22,6 +22,7 @@
 #include <SDL/SDL_mixer.h>
 #include <SDL/SDL_opengl.h>
 #include <GL/gl.h>
+#include <GL/glu.h>
 #include <SOIL.h>
 
 #define debug(...) puts(__VA_ARGS__) /* Define debug(..) as a macro with parameters which are passed to puts */

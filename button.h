@@ -16,6 +16,7 @@
 
 #include <SDL/SDL.h>
 #include <iostream>
+#include <GL/glu.h>
 
 extern SDL_Surface* window;
 extern SDL_Surface* background;
@@ -24,7 +25,7 @@ extern int WHAT_WINDOW;
 class Button
 {
 private:
-	SDL_Surface* buttonSurface;
+	GLuint texture;
 	const char* buttonName;
 	SDL_Rect rect;
 public:
