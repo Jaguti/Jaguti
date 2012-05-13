@@ -43,7 +43,7 @@ void Button::Draw(int x, int y, int w, int h)
 	rect.y = (Sint16) y;
 	rect.w = (Sint16) w;
 	rect.h = (Sint16) h;
-	applySurface( x, y, buttonSurface, window );
+	/*  applySurface( x, y, buttonSurface, window );*/
 }
 
 void Button::MouseOver()
@@ -59,7 +59,7 @@ void Button::MouseOver()
 }
 
 void Button::MouseUp()
-{
+{/* 
 	int x = event.motion.x, y = event.motion.y;
 
 	if( ( x > rect.x ) && ( x < rect.x + rect.w ) && ( y > rect.y ) && ( y < rect.y + rect.h ) )
@@ -83,7 +83,7 @@ void Button::MouseUp()
 					SDL_BlitSurface( background, NULL, window, NULL );
 					SDL_GL_SwapBuffers();
 					//TODO: Add buttons!
-					WHAT_WINDOW=1; /* We are now officially in the options menu! :D */
+					WHAT_WINDOW=1; // We are now officially in the options menu! :D 
 					backButton.Draw(450,400, 149, 50);
 					toggleSoundButton.Draw(290, 250, 462, 62);
 					toggleEasterEggButton.Draw(200, 328, 658, 62);
@@ -130,7 +130,7 @@ void Button::MouseUp()
 				break;
 		}
 	}
-	
+*/	
 }
 
 void Button::MouseDown()
@@ -145,5 +145,4 @@ void Button::MouseDown()
 
 Button::~Button()
 {
-	SDL_FreeSurface(buttonSurface);	
 }

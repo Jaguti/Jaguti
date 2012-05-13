@@ -16,9 +16,10 @@
 
 
 SDL_Surface* window;
-SDL_Surface* background;
 SDL_Surface* options;
 SDL_Event event;
+
+GLuint background[1];
 
 bool exiting = false;
 
@@ -47,8 +48,31 @@ int main ()
 	toggleSoundButton.Load("./concept-Art/toggleSound.png", "sound");
 	toggleEasterEggButton.Load("./concept-Art/toggleEasterEgg.png", "toggleeasteregg");
 
-	background = loadImage("./concept-Art/background_for_testing.png");
-	SDL_BlitSurface( background, NULL, window, NULL ); /* Apply image to screen */
+	background[0] = SOIL_load_OGL_texture(
+			"concept-Art/background_for_testing.png", 
+			SOIL_LOAD_AUTO, 
+			SOIL_CREATE_NEW_ID, 
+			SOIL_FLAG_INVERT_Y|SOIL_FLAG_NTSC_SAFE_RGB|SOIL_FLAG_COMPRESS_TO_DXT);
+
+	if(background[0] == 0)
+	{
+		debug("fail!");
+		printf("SOIL: %s\n", SOIL_last_result());
+	}
+	glEnable(GL_TEXTURE_2D);
+	glBindTexture(GL_TEXTURE_2D, background[0]);
+	glBegin(GL_QUADS);
+		glTexCoord2f(0.0f, 0.0f); glVertex2f(-1.0f, -1.0f); // Bottom left
+		glTexCoord2f(1.0f, 0.0f); glVertex2f(1.0f, -1.0f); // Bottom right
+		glTexCoord2f(0.0f, 1.0f); glVertex2f(-1.0f, 1.0f); // Top left
+		glTexCoord2f(1.0f, 1.0f); glVertex2f(1.0f, 1.0f); // Top right
+		SDL_GL_SwapBuffers();
+		glTexCoord2f(0.0f, 0.0f); glVertex2f(-1.0f, -1.0f); // Bottom left
+		glTexCoord2f(1.0f, 0.0f); glVertex2f(1.0f, -1.0f); // Bottom right
+		glTexCoord2f(0.0f, 1.0f); glVertex2f(-1.0f, 1.0f); // Top left
+		glTexCoord2f(1.0f, 1.0f); glVertex2f(1.0f, 1.0f); // Top right 
+	glEnd();
+	glDisable(GL_TEXTURE_2D);
 
 	SDL_GL_SwapBuffers();                     /* Update screen */
 
@@ -128,6 +152,7 @@ int main ()
 				
 			}
 		SDL_GL_SwapBuffers();
+		debug("Swap");
 		}
 		if(WHAT_WINDOW==2 || WHAT_WINDOW==3)
 		{
@@ -223,7 +248,6 @@ SDL_Surface *loadImage( std::string filename )
 void cleanUp()
 {
         /* TODO: ADD MOAR "FREE"S  */
-	SDL_FreeSurface(background);            /* Free the background from memory */
 	SDL_Quit();                             /* Quit SDL and  */
 
 }

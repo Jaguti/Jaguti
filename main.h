@@ -46,7 +46,6 @@ extern Mix_Music *song;
 
 // Declare the surfaces
 extern SDL_Surface* window;
-extern SDL_Surface* background;         /* Declare the background */
 
 // Declare the buttons
 //extern Button playButton;
@@ -68,5 +67,6 @@ extern void checkKeyUp();
 extern void checkKeyDown();
 */
 
+extern GLuint background[1];
 
 #endif

@@ -19,7 +19,6 @@
 #include <GL/glu.h>
 
 extern SDL_Surface* window;
-extern SDL_Surface* background;
 extern int WHAT_WINDOW;
 
 class Button
