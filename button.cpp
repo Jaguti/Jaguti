@@ -33,7 +33,6 @@ Button::Button()
 
 void Button::Load(const char * filename, const char* name)
 {
-	texture = SOIL_load_OGL_texture(filename, SOIL_LOAD_AUTO, SOIL_CREATE_NEW_ID, SOIL_FLAG_NTSC_SAFE_RGB);
 	buttonName = name;
 }
 

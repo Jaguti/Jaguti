@@ -64,13 +64,12 @@ int main ()
 	glBegin(GL_QUADS);
 		glTexCoord2f(0.0f, 0.0f); glVertex2f(-1.0f, -1.0f); // Bottom left
 		glTexCoord2f(1.0f, 0.0f); glVertex2f(1.0f, -1.0f); // Bottom right
-		glTexCoord2f(0.0f, 1.0f); glVertex2f(-1.0f, 1.0f); // Top left
 		glTexCoord2f(1.0f, 1.0f); glVertex2f(1.0f, 1.0f); // Top right
-		SDL_GL_SwapBuffers();
-		glTexCoord2f(0.0f, 0.0f); glVertex2f(-1.0f, -1.0f); // Bottom left
-		glTexCoord2f(1.0f, 0.0f); glVertex2f(1.0f, -1.0f); // Bottom right
 		glTexCoord2f(0.0f, 1.0f); glVertex2f(-1.0f, 1.0f); // Top left
-		glTexCoord2f(1.0f, 1.0f); glVertex2f(1.0f, 1.0f); // Top right 
+		/*glTexCoord2f(0.0f, 0.0f); *///glVertex2f(0.0f, 0.0f); // Bottom left
+		/*glTexCoord2f(1.0f, 0.0f); *///glVertex2f(1.0f, 0.0f); // Bottom right
+		/*glTexCoord2f(0.0f, 1.0f);*/ //glVertex2f(0.0f, 1.0f); // Top left
+		/*glTexCoord2f(1.0f, 1.0f);*/ //glVertex2f(1.0f, 1.0f); // Top right 
 	glEnd();
 	glDisable(GL_TEXTURE_2D);
 
