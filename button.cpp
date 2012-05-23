@@ -99,7 +99,7 @@ void Button::MouseUp()
 				{
 					debug("Play\n");
 					WHAT_WINDOW=2;
-					SDL_GL_SwapBuffers();
+					drawScene();
 				}
 				break;
 			case 1:
