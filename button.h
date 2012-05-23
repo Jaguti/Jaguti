@@ -30,7 +30,7 @@ private:
 public:
 	Button();                /*  */
 	void Load(const char * filename, const char* name);
-	void Draw( int x, int y, int w, int h );
+	void Draw(GLfloat x, GLfloat y, GLfloat w, GLfloat h);
 	void MouseOver();
 	void MouseUp();
 	void MouseDown();

@@ -19,7 +19,7 @@ SDL_Surface* window;
 SDL_Surface* options;
 SDL_Event event;
 
-GLuint background[1];
+GLuint background[4];
 
 bool exiting = false;
 
@@ -44,42 +44,38 @@ int main ()
 	playButton.Load("./concept-Art/play.png", "play");
 	optionsButton.Load("./concept-Art/options.png", "options");
 	quitButton.Load("./concept-Art/quit.png", "quit");
-	backButton.Load("./concept-Art/back.png", "back");
-	toggleSoundButton.Load("./concept-Art/toggleSound.png", "sound");
-	toggleEasterEggButton.Load("./concept-Art/toggleEasterEgg.png", "toggleeasteregg");
 
 	background[0] = SOIL_load_OGL_texture(
 			"concept-Art/background_for_testing.png", 
 			SOIL_LOAD_AUTO, 
 			SOIL_CREATE_NEW_ID, 
-			SOIL_FLAG_INVERT_Y|SOIL_FLAG_NTSC_SAFE_RGB|SOIL_FLAG_COMPRESS_TO_DXT);
+			SOIL_FLAG_NTSC_SAFE_RGB|SOIL_FLAG_COMPRESS_TO_DXT);
 
-	if(background[0] == 0)
+		
+
+	drawScene();
+	
+	background[1] = SOIL_load_OGL_texture(
+			"concept-Art/optionsbackground.png", 
+			SOIL_LOAD_AUTO, 
+			SOIL_CREATE_NEW_ID, 
+			SOIL_FLAG_NTSC_SAFE_RGB|SOIL_FLAG_COMPRESS_TO_DXT);
+	
+	background[2] = SOIL_load_OGL_texture(
+			"concept-Art/playbackground.png", 
+			SOIL_LOAD_AUTO, 
+			SOIL_CREATE_NEW_ID, 
+			SOIL_FLAG_NTSC_SAFE_RGB|SOIL_FLAG_COMPRESS_TO_DXT);
+
+	if(!background[1]||!background[0])
 	{
 		debug("fail!");
 		printf("SOIL: %s\n", SOIL_last_result());
 	}
-	glEnable(GL_TEXTURE_2D);
-	glBindTexture(GL_TEXTURE_2D, background[0]);
-	glBegin(GL_QUADS);
-		glTexCoord2f(0.0f, 0.0f); glVertex2f(-1.0f, -1.0f); // Bottom left
-		glTexCoord2f(1.0f, 0.0f); glVertex2f(1.0f, -1.0f); // Bottom right
-		glTexCoord2f(1.0f, 1.0f); glVertex2f(1.0f, 1.0f); // Top right
-		glTexCoord2f(0.0f, 1.0f); glVertex2f(-1.0f, 1.0f); // Top left
-		/*glTexCoord2f(0.0f, 0.0f); *///glVertex2f(0.0f, 0.0f); // Bottom left
-		/*glTexCoord2f(1.0f, 0.0f); *///glVertex2f(1.0f, 0.0f); // Bottom right
-		/*glTexCoord2f(0.0f, 1.0f);*/ //glVertex2f(0.0f, 1.0f); // Top left
-		/*glTexCoord2f(1.0f, 1.0f);*/ //glVertex2f(1.0f, 1.0f); // Top right 
-	glEnd();
-	glDisable(GL_TEXTURE_2D);
-
-	SDL_GL_SwapBuffers();                     /* Update screen */
-
-	playButton.Draw( 450, 250, 118, 58 );
-	optionsButton.Draw( 400, 325, 220, 58 );
-	quitButton.Draw( 450, 400, 116, 56 );
-
-	SDL_GL_SwapBuffers();                   /* Update screen */
+	
+	backButton.Load("./concept-Art/back.png", "back");
+	toggleSoundButton.Load("./concept-Art/toggleSound.png", "sound");
+	toggleEasterEggButton.Load("./concept-Art/toggleEasterEgg.png", "toggleeasteregg");
 
 	/* This, my friends, is known as the */
 	/*     		   MAIN LOOP 	     */
@@ -150,8 +146,7 @@ int main ()
 					break;
 				
 			}
-		SDL_GL_SwapBuffers();
-		debug("Swap");
+		drawScene();
 		}
 		if(WHAT_WINDOW==2 || WHAT_WINDOW==3)
 		{
@@ -164,6 +159,72 @@ int main ()
 	return EXIT_SUCCESS;
 }				/* ----------  end of function main  ---------- */
 
+int drawScene()
+{
+	switch(WHAT_WINDOW)
+	{
+		case 0: /* We are in the main menu */
+			
+			glEnable(GL_TEXTURE_2D);
+			glBindTexture(GL_TEXTURE_2D, background[0]);
+			glBegin(GL_QUADS);
+				glTexCoord2f(0.0f, 0.0f); glVertex2f(0.0f, 0.0f); // Bottom left
+				glTexCoord2f(1.0f, 0.0f); glVertex2f(1000.0f, 0.0f); // Bottom right
+				glTexCoord2f(1.0f, 1.0f); glVertex2f(1000.0f, 600.0f); // Top right
+				glTexCoord2f(0.0f, 1.0f); glVertex2f(0.0f, 600.0f); // Top left
+			glEnd();
+			
+			playButton.Draw( 450.0, 250.0, 118.0, 58.0 );
+			optionsButton.Draw( 400.0, 325.0, 220.0, 58.0 );
+			quitButton.Draw( 450.0, 400.0, 116.0, 56.0 );
+
+			glDisable(GL_TEXTURE_2D);
+			glFlush();
+			
+			SDL_GL_SwapBuffers();
+			break;
+
+		case 1:
+			
+			glEnable(GL_TEXTURE_2D);
+			glBindTexture(GL_TEXTURE_2D, background[1]);
+			glBegin(GL_QUADS);
+				glTexCoord2f(0.0f, 0.0f); glVertex2f(0.0f, 0.0f); // Bottom left
+				glTexCoord2f(1.0f, 0.0f); glVertex2f(1000.0f, 0.0f); // Bottom right
+				glTexCoord2f(1.0f, 1.0f); glVertex2f(1000.0f, 600.0f); // Top right
+				glTexCoord2f(0.0f, 1.0f); glVertex2f(0.0f, 600.0f); // Top left
+			glEnd();
+				
+			backButton.Draw(450,400, 149, 50);
+			toggleSoundButton.Draw(290, 250, 462, 62);
+			toggleEasterEggButton.Draw(200, 328, 658, 62);
+
+			glDisable(GL_TEXTURE_2D);
+			glFlush();
+
+			SDL_GL_SwapBuffers();
+			break;
+			
+		case 2:
+			glEnable(GL_TEXTURE_2D);
+			glBindTexture(GL_TEXTURE_2D, background[2]);
+			glBegin(GL_QUADS);
+				glTexCoord2f(0.0f, 0.0f); glVertex2f(0.0f, 0.0f); // Bottom left
+				glTexCoord2f(1.0f, 0.0f); glVertex2f(1000.0f, 0.0f); // Bottom right
+				glTexCoord2f(1.0f, 1.0f); glVertex2f(1000.0f, 600.0f); // Top right
+				glTexCoord2f(0.0f, 1.0f); glVertex2f(0.0f, 600.0f); // Top left
+			glEnd();
+
+			glDisable(GL_TEXTURE_2D);
+			glFlush();
+
+			SDL_GL_SwapBuffers();
+
+		default:
+			break;
+	}
+	return 0;
+}
 int drawScreen()
 {
 	if( SDL_Init( SDL_INIT_VIDEO | SDL_INIT_AUDIO ) != 0 ) /* Initialise SDL */
@@ -187,11 +248,21 @@ int drawScreen()
 	glClear(GL_COLOR_BUFFER_BIT);
 
 	SDL_GL_SwapBuffers();
+	glEnable(GL_BLEND);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
 	glClear(GL_COLOR_BUFFER_BIT);
 
-	SDL_GL_SwapBuffers();
+	glViewport(0,0, WINDOW_WIDTH, WINDOW_HEIGHT);
 
+	glMatrixMode(GL_PROJECTION);
+	glLoadIdentity();
+
+	glOrtho(0.0, 1000.0, 600.0, 0.0, 0.0, 1.0);
+
+	glFlush();
+
+	SDL_GL_SwapBuffers();
 	//Mix_OpenAudio( 22050, MIX_DEFAULT_FORMAT, 2, 4096 );
 	//song = Mix_LoadMUS( "./musix/trololo.wav" );
 	//if( song == NULL )
@@ -247,6 +318,7 @@ SDL_Surface *loadImage( std::string filename )
 void cleanUp()
 {
         /* TODO: ADD MOAR "FREE"S  */
+	glDisable(GL_BLEND);
 	SDL_Quit();                             /* Quit SDL and  */
 
 }

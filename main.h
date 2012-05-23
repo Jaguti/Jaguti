@@ -60,6 +60,7 @@ extern int drawScreen();       /* Draw the window */
 extern SDL_Surface *loadImage( std::string filename );
 extern bool applySurface( int x, int y, SDL_Surface* src, SDL_Surface* dest );
 extern void cleanUp();
+extern int drawScene();
 /* extern void checkMouseOver();
 extern void checkMouseUp();
 extern void checkMouseDown();
@@ -67,6 +68,6 @@ extern void checkKeyUp();
 extern void checkKeyDown();
 */
 
-extern GLuint background[1];
+extern GLuint background[4];
 
 #endif
