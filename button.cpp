@@ -22,8 +22,7 @@
  *  Each values has its own menu:
  *  		0 - main menu
  *  		1 - options menu
- *  		2 - playing the game (without element picker)
- *  		3 - playing the game (with element picker)
+ *  		2 - playing the game 
  *-----------------------------------------------------------------------------*/
 int WHAT_WINDOW = 0;
 

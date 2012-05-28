@@ -23,13 +23,15 @@
 #include <SDL/SDL_opengl.h>
 #include <GL/gl.h>
 #include <GL/glu.h>
-#include <SOIL/SOIL.h>
+#include <SOIL.h>
 
 #define debug(...) puts(__VA_ARGS__) /* Define debug(..) as a macro with parameters which are passed to puts */
  
 #define	WINDOW_HEIGHT 600			/* The window's height */
 #define	WINDOW_WIDTH 1000			/* The window's width */
 #define	WINDOW_BPP 32	  		/* The window's Bits Per Pixel */
+
+#define ELEMENT_COUNT 1 		/* The amount of elements featured in the game */
 
 /* 
 typedef struct
@@ -68,6 +70,6 @@ extern void checkKeyUp();
 extern void checkKeyDown();
 */
 
-extern GLuint background[4];
-
+extern GLint background[4];
+extern const GLint elementButtonCount;
 #endif

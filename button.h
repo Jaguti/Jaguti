@@ -24,7 +24,7 @@ extern int WHAT_WINDOW;
 class Button
 {
 private:
-	GLuint texture;
+	GLint texture;
 	const char* buttonName;
 	SDL_Rect rect;
 public:
@@ -37,10 +37,13 @@ public:
 	~Button();
 };
 
+
 extern Button playButton;
 extern Button optionsButton;
 extern Button quitButton;
 extern Button backButton;
 extern Button toggleSoundButton;
 extern Button toggleEasterEggButton;
+
+extern Button elementButtons[1];
 #endif

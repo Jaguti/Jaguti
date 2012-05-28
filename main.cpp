@@ -19,7 +19,7 @@ SDL_Surface* window;
 SDL_Surface* options;
 SDL_Event event;
 
-GLuint background[4];
+GLint background[4];
 
 bool exiting = false;
 
@@ -29,6 +29,9 @@ Button quitButton;
 Button backButton;
 Button toggleSoundButton;
 Button toggleEasterEggButton;
+
+Button elementButtons[1];
+const GLint elementButtonCount = 1;
 
 Mix_Music *song;
 
@@ -67,6 +70,8 @@ int main ()
 			SOIL_CREATE_NEW_ID, 
 			SOIL_FLAG_NTSC_SAFE_RGB|SOIL_FLAG_COMPRESS_TO_DXT);
 
+
+
 	if(!background[1]||!background[0])
 	{
 		debug("fail!");
@@ -76,6 +81,8 @@ int main ()
 	backButton.Load("./concept-Art/back.png", "back");
 	toggleSoundButton.Load("./concept-Art/toggleSound.png", "sound");
 	toggleEasterEggButton.Load("./concept-Art/toggleEasterEgg.png", "toggleeasteregg");
+
+	elementButtons[0].Load("./concept-Art/waterText.png", "waterText");
 
 	/* This, my friends, is known as the */
 	/*     		   MAIN LOOP 	     */
@@ -132,6 +139,13 @@ int main ()
 						backButton.MouseUp();
 						toggleSoundButton.MouseUp();
 						toggleEasterEggButton.MouseUp();
+					}
+					if(WHAT_WINDOW==2)
+					{
+						for(int i=0;i<elementButtonCount;i++)
+						{
+							elementButtons[i].MouseUp();
+						}
 					}
 					break;
 
@@ -215,7 +229,12 @@ int drawScene()
 				glTexCoord2f(0.0f, 1.0f); glVertex2f(0.0f, 600.0f); // Top left
 			glEnd();
 
+			elementButtons[0].Draw(835, 10, 53, 13);
+
 			glDisable(GL_TEXTURE_2D);
+			glColor3f(0.0f, 0.0f, 1.0f);
+			glRectf(900.0f, 15.0f, 910.0f, 25.0f);
+			glColor3f(0.0f, 0.0f, 0.0f);
 			glFlush();
 
 			SDL_GL_SwapBuffers();
