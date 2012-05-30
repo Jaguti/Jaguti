@@ -233,7 +233,7 @@ int drawScene()
 
 			glDisable(GL_TEXTURE_2D);
 			glColor3f(0.0f, 0.0f, 1.0f);
-			glRectf(900.0f, 15.0f, 910.0f, 25.0f);
+			glRectf(980.0f, 15.0f, 990.0f, 25.0f);
 			glColor3f(1.0f, 1.0f, 1.0f);
 			glFlush();
 
