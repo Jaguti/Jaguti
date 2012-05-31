@@ -98,7 +98,7 @@ int main ()
 					break;
 				
 				case SDL_MOUSEMOTION:
-					if(!WHAT_WINDOW)
+					/*if(!WHAT_WINDOW)
 					{
 						playButton.MouseOver();
 						optionsButton.MouseOver();
@@ -109,11 +109,11 @@ int main ()
 						backButton.MouseOver();
 						toggleSoundButton.MouseOver();
 						toggleEasterEggButton.MouseOver();
-					}
+					}*/
 					break;
 
 				case SDL_MOUSEBUTTONDOWN:
-					if(!WHAT_WINDOW)
+					/*if(!WHAT_WINDOW)
 					{
 						playButton.MouseDown();
 						optionsButton.MouseDown();
@@ -124,7 +124,8 @@ int main ()
 						backButton.MouseDown();
 						toggleSoundButton.MouseDown();
 						toggleEasterEggButton.MouseDown();
-					}
+					}*/
+					if(WHAT_WINDOW==2 && )
 					break;
 
 				case SDL_MOUSEBUTTONUP:
@@ -233,7 +234,7 @@ int drawScene()
 
 			glDisable(GL_TEXTURE_2D);
 			glColor3f(0.0f, 0.0f, 1.0f);
-			glRectf(980.0f, 15.0f, 990.0f, 25.0f);
+			glRectf(980.0f, 12.0f, 990.0f, 22.0f);
 			glColor3f(1.0f, 1.0f, 1.0f);
 			glFlush();
 
