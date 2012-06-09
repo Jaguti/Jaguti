@@ -22,6 +22,7 @@ SDL_Event event;
 GLint background[4];
 
 bool exiting = false;
+bool dolan = false;
 
 Button playButton;
 Button optionsButton;
@@ -48,13 +49,12 @@ int main ()
 	optionsButton.Load("./concept-Art/options.png", "options");
 	quitButton.Load("./concept-Art/quit.png", "quit");
 
+
 	background[0] = SOIL_load_OGL_texture(
 			"concept-Art/background_for_testing.png", 
 			SOIL_LOAD_AUTO, 
 			SOIL_CREATE_NEW_ID, 
 			SOIL_FLAG_NTSC_SAFE_RGB|SOIL_FLAG_COMPRESS_TO_DXT);
-
-		
 
 	drawScene();
 	
@@ -69,10 +69,9 @@ int main ()
 			SOIL_LOAD_AUTO, 
 			SOIL_CREATE_NEW_ID, 
 			SOIL_FLAG_NTSC_SAFE_RGB|SOIL_FLAG_COMPRESS_TO_DXT);
+			
 
-
-
-	if(!background[1]||!background[0])
+	if(!background[1]||!background[0]||!background[2])
 	{
 		debug("fail!");
 		printf("SOIL: %s\n", SOIL_last_result());
@@ -125,7 +124,6 @@ int main ()
 						toggleSoundButton.MouseDown();
 						toggleEasterEggButton.MouseDown();
 					}*/
-					if(WHAT_WINDOW==2 && )
 					break;
 
 				case SDL_MOUSEBUTTONUP:
@@ -135,18 +133,25 @@ int main ()
 						optionsButton.MouseUp();
 						quitButton.MouseUp();
 					}
-					if(WHAT_WINDOW)
+					else if(WHAT_WINDOW)
 					{
 						backButton.MouseUp();
 						toggleSoundButton.MouseUp();
 						toggleEasterEggButton.MouseUp();
 					}
-					if(WHAT_WINDOW==2)
+					else if(WHAT_WINDOW==2)
 					{
-						for(int i=0;i<elementButtonCount;i++)
+						if(event.motion.x > 825) // If we clicked a button
 						{
-							elementButtons[i].MouseUp();
+							for(int i=0;i<elementButtonCount;i++)
+							{
+								elementButtons[i].MouseUp();
+							}
 						}
+						else // If we did not click a button, in other words, if we created an element.
+						{
+							
+						}					
 					}
 					break;
 
@@ -155,8 +160,13 @@ int main ()
 					break;
 
 				 case SDL_KEYUP:
-					// TODO: Do something!
+					if(WHAT_WINDOW == 2 && event.key.keysym.sym == SDLK_ESCAPE)
+					{
+						WHAT_WINDOW = 0;
+						drawScene();
+					}
 					break;
+
 				default:
 					break;
 				
@@ -245,7 +255,7 @@ int drawScene()
 	}
 	return 0;
 }
-int drawScreen()
+int drawScreen() // Screen, NOT Scene! :)
 {
 	if( SDL_Init( SDL_INIT_VIDEO | SDL_INIT_AUDIO ) != 0 ) /* Initialise SDL */
 	{

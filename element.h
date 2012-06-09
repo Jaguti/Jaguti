@@ -15,10 +15,17 @@
 #ifndef ELEMENT_H
 #define ELEMENT_H
 
+enum elementType
+{
+	WATER,
+	FIRE
+};
+
 class Element
 {
 private:
 	SDL_Surface* surf;
+	enum elementType type;
 public:
 	void Draw(const char * filename, int x, int y);
 };

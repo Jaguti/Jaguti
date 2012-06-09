@@ -112,7 +112,42 @@ void Button::MouseUp()
 				if(!strcmp(buttonName, "toggleeasteregg"))
 				{
 					debug("ToggleEasterEgg\n");
-					//TODO: Toggle Dolan Mode!
+					if(dolan == true)
+					{
+						dolan = false;
+
+
+						background[0] = SOIL_load_OGL_texture(
+								"concept-Art/background_for_testing.png", 
+								SOIL_LOAD_AUTO, 
+								SOIL_CREATE_NEW_ID, 
+								SOIL_FLAG_NTSC_SAFE_RGB|SOIL_FLAG_COMPRESS_TO_DXT);
+
+						background[1] = SOIL_load_OGL_texture(
+								"concept-Art/optionsbackground.png", 
+								SOIL_LOAD_AUTO, 
+								SOIL_CREATE_NEW_ID, 
+								SOIL_FLAG_NTSC_SAFE_RGB|SOIL_FLAG_COMPRESS_TO_DXT);
+						drawScene();
+					}
+					else
+					{
+						dolan = true;
+						
+						background[0] = SOIL_load_OGL_texture(
+								"concept-Art/backgroundDolan.png", 
+								SOIL_LOAD_AUTO, 
+								SOIL_CREATE_NEW_ID, 
+								SOIL_FLAG_NTSC_SAFE_RGB|SOIL_FLAG_COMPRESS_TO_DXT);
+
+
+						background[1] = SOIL_load_OGL_texture(
+								"concept-Art/optionsDolan.png", 
+								SOIL_LOAD_AUTO, 
+								SOIL_CREATE_NEW_ID, 
+								SOIL_FLAG_NTSC_SAFE_RGB|SOIL_FLAG_COMPRESS_TO_DXT);
+						drawScene();
+					}
 				}
 
 				if(!strcmp(buttonName, "sound"))

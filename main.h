@@ -24,6 +24,7 @@
 #include <GL/gl.h>
 #include <GL/glu.h>
 #include <SOIL/SOIL.h>
+#include "element.h"
 
 #define debug(...) puts(__VA_ARGS__) /* Define debug(..) as a macro with parameters which are passed to puts */
  
@@ -43,6 +44,7 @@ menu WINDOW[4];
 */
 // Declare a bool for quit
 extern bool exiting;
+extern bool dolan;
 
 extern Mix_Music *song;
 
