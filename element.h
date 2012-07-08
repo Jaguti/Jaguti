@@ -15,19 +15,28 @@
 #ifndef ELEMENT_H
 #define ELEMENT_H
 
+#include <GL/glu.h>
+
 enum elementType
 {
 	WATER,
 	FIRE
 };
 
+struct position
+{
+	GLint x, y;
+};
+
 class Element
 {
-private:
-	SDL_Surface* surf;
-	enum elementType type;
 public:
-	void Draw(const char * filename, int x, int y);
+	bool in_use;
+	struct position pos;
+	enum elementType type;
+	void Draw(GLfloat x, GLfloat y);
 };
+
+extern Element lol;
 
 #endif

@@ -13,7 +13,7 @@
  */
 #include "main.h"
 #include "button.h"
-
+#include "element.h"
 
 SDL_Surface* window;
 SDL_Surface* options;
@@ -30,6 +30,8 @@ Button quitButton;
 Button backButton;
 Button toggleSoundButton;
 Button toggleEasterEggButton;
+
+Element lol;
 
 Button elementButtons[1];
 const GLint elementButtonCount = 1;
@@ -127,13 +129,13 @@ int main ()
 					break;
 
 				case SDL_MOUSEBUTTONUP:
-					if(!WHAT_WINDOW)
+					if(WHAT_WINDOW==0)
 					{
 						playButton.MouseUp();
 						optionsButton.MouseUp();
 						quitButton.MouseUp();
 					}
-					else if(WHAT_WINDOW)
+					else if(WHAT_WINDOW==1)
 					{
 						backButton.MouseUp();
 						toggleSoundButton.MouseUp();
@@ -150,7 +152,9 @@ int main ()
 						}
 						else // If we did not click a button, in other words, if we created an element.
 						{
-							
+							// Create an element!
+							lol.type = WATER;
+							lol.Draw( (GLfloat) event.motion.x, (GLfloat) event.motion.y );
 						}					
 					}
 					break;
@@ -246,6 +250,20 @@ int drawScene()
 			glColor3f(0.0f, 0.0f, 1.0f);
 			glRectf(980.0f, 12.0f, 990.0f, 22.0f);
 			glColor3f(1.0f, 1.0f, 1.0f);
+		
+			if(lol.in_use)
+			{
+
+				switch(lol.type)
+				{
+					case WATER:
+						glColor3f(0.0, 0.0, 1.0);
+						break;
+				}
+				glRectf(lol.pos.x, lol.pos.y, lol.pos.x+5.0, lol.pos.y+5.0);
+				glColor3f(1.0, 1.0, 1.0);
+			}
+
 			glFlush();
 
 			SDL_GL_SwapBuffers();

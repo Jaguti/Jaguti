@@ -13,15 +13,25 @@
  */
 
 #include "element.h"
+#include <SDL/SDL.h>
 
-/* The Element constructor */
-Element::Element()
+
+void Element::Draw(GLfloat x, GLfloat y)
 {
-
-}
-
-Element::Draw(enum elementType a, int x, int y)
-{
-	type = a;
-
+	in_use = 1;
+	
+	switch(type)
+	{
+		case WATER:
+			glColor3f(0.0, 0.0, 1.0);
+			break;
+	}
+	glRectf(x, y, x+5.0, y+5.0);
+	glColor3f(1.0, 1.0, 1.0);
+	
+	glFlush();
+	SDL_GL_SwapBuffers();
+	
+	pos.x = x;
+	pos.y = y;
 }
