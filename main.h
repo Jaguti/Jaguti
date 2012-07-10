@@ -61,8 +61,6 @@ extern SDL_Event event;
 
 // Declare functions
 extern int drawScreen();       /* Draw the window */
-extern SDL_Surface *loadImage( std::string filename );
-extern bool applySurface( int x, int y, SDL_Surface* src, SDL_Surface* dest );
 extern void cleanUp();
 extern int drawScene();
 /* extern void checkMouseOver();
