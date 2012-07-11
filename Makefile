@@ -10,7 +10,7 @@ main.o : main.cpp main.h
 element.o : element.cpp element.h
 	g++ -Wall -g -c element.cpp
 
-jaguti : button.o main.o element.o
+jaguti : main.o button.o element.o
 	g++ -g button.o main.o element.o -o jaguti -lSDL -lSDL_image -lSDL_mixer -lGL -lSOIL
 	rm main.o button.o element.o
 
