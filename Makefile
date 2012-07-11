@@ -1,7 +1,10 @@
+# Jaguti's Makefile
+
 button.o : button.cpp button.h
 	g++ -Wall -g -c button.cpp
 
 main.o : main.cpp main.h
+	$(shell) ./SOILpatch.sh
 	g++ -Wall -g -c main.cpp
 
 element.o : element.cpp element.h
