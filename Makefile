@@ -5,13 +5,13 @@ button.o : button.cpp button.h
 
 main.o : main.cpp main.h
 	$(shell) ./SOILpatch.sh
-	g++ -Wall -g -c main.cpp -std=c++11 -pthread
+	g++ -Wall -g -c main.cpp -std=gnu++11 -pthread -D_GLIBCXX_USE_NANOSLEEP
 
 element.o : element.cpp element.h
 	g++ -Wall -g -c element.cpp -std=c++11 -pthread 
 
 render.o : render.cpp
-	g++ -Wall -g -c render.cpp -std=c++11 -pthread
+	g++ -Wall -g -c render.cpp -std=gnu++11 -pthread -D_GLIBCXX_USE_NANOSLEEP
 
 oldjaguti : main.o button.o element.o render.o
 	g++ -g button.o main.o element.o -o jaguti -lSDL -lSDL_image -lSDL_mixer -lGL -lSOIL 
