@@ -5,7 +5,7 @@ button.o : button.cpp button.h
 
 main.o : main.cpp main.h
 	$(shell) ./SOILpatch.sh
-	g++ -Wall -g -c main.cpp -std=gnu++11 -pthread -D_GLIBCXX_USE_NANOSLEEP
+	g++ -Wall -g -c main.cpp -std=gnu++11 -pthread -D_GLIBCXX_USE_NANOSLEEP -DDEBUG
 
 element.o : element.cpp element.h
 	g++ -Wall -g -c element.cpp -std=c++11 -pthread 
