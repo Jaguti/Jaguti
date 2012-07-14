@@ -12,19 +12,25 @@
  * =====================================================================================
  */
 
-#include <iostream>
-#include <thread>
-#include <chrono>
+// Allan, please add a comment.
 
-const std::chrono::duration<double> sleepDuration(0.025); /* 25 milliseconds, 1  / 40  = 0.025 			 */
-							  /* We do this in order to lock the framerate at 40 FPS */
+#include "main.h"
+
+
+using namespace Jaguti;
 
 void timer1();
 
 int main()
 {
+	/* Hello world! :) */
+	std::thread tInitialise( * RenderClass::Initialise );
+
+	tInitialise.join();
+
+	std::cout << "Done!" << std::endl;
+
 	std::thread tTimer1(timer1);
-	std::cout << "test" << std::endl;
 	
 	tTimer1.join();
 	return 0;

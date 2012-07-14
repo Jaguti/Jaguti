@@ -3,7 +3,7 @@
  *
  *       Filename:  main.h
  *
- *    Description:  Jaguti's main header file
+ *    Description:  The main header file for Jaguti
  *
  * 	  Authors:  Håkon Vågsether <hauk142@gmail.com>, 
  * 	  	    Audun Måseidvåg <au.maas@adsl.no>,
@@ -11,65 +11,38 @@
  *
  * =====================================================================================
  */
-#ifndef MAIN_H
-#define MAIN_H
 
-#include "button.h"
-#include <stdlib.h>
+#ifndef JAGUTI_MAIN_H
+#define JAGUTI_MAIN_H
+
+#include <chrono>
 #include <iostream>
+#include <thread>
 #include <SDL/SDL.h>
 #include <SDL/SDL_image.h>
-#include <SDL/SDL_mixer.h>
 #include <SDL/SDL_opengl.h>
 #include <GL/gl.h>
-#include <GL/glu.h>
 #include <SOIL.h>
-#include "element.h"
 
-#define debug(...) puts(__VA_ARGS__) /* Define debug(..) as a macro with parameters which are passed to puts */
- 
-#define	WINDOW_HEIGHT 600			/* The window's height */
-#define	WINDOW_WIDTH 1000			/* The window's width */
-#define	WINDOW_BPP 32	  		/* The window's Bits Per Pixel */
-
-#define ELEMENT_COUNT 1 		/* The amount of elements featured in the game */
-
-/* 
-typedef struct
+namespace Jaguti
 {
-	SDL_Surface *surf;
-} menu;
+	
+	
+	const std::chrono::duration<double> sleepDuration(0.025); /* 25 milliseconds, 1  / 40  = 0.025 			 */
+								  /* We do this in order to lock the framerate at 40 FPS */
 
-menu WINDOW[4];
-*/
-// Declare a bool for quit
-extern bool exiting;
-extern bool dolan;
+	// Better wrap these up somehow!
+	const int window_width = 1000;
+	const int window_height = 600;
+	const int window_bpp = 32;
 
-extern Mix_Music *song;
 
-// Declare the surfaces
-extern SDL_Surface* window;
+	class RenderClass
+	{
+		public:
+			static void Initialise();
+	};
+}
 
-// Declare the buttons
-//extern Button playButton;
-//extern Button optionsButton;
-//extern Button quitButton;
 
-// Declare the event
-extern SDL_Event event;
-
-// Declare functions
-extern int drawScreen();       /* Draw the window */
-extern void cleanUp();
-extern int drawScene();
-/* extern void checkMouseOver();
-extern void checkMouseUp();
-extern void checkMouseDown();
-extern void checkKeyUp();
-extern void checkKeyDown();
-*/
-
-extern GLint background[4];
-extern const GLint elementButtonCount;
 #endif
