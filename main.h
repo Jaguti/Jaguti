@@ -20,9 +20,10 @@
 #include <thread>
 #include <SDL/SDL.h>
 #include <SDL/SDL_image.h>
+//#include <SDL/SDL_mixer.h>
 #include <SDL/SDL_opengl.h>
 #include <GL/gl.h>
-#include <SOIL.h>
+#include <SOIL/SOIL.h>
 
 namespace Jaguti
 {
@@ -41,7 +42,11 @@ namespace Jaguti
 	{
 		public:
 			static void Initialise();
+			//static void LoadAll();
+			static void PissOff();
 	};
+
+	void cleanExit();
 }
 
 

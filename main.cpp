@@ -26,14 +26,15 @@ int main()
 	/* Hello world! :) */
 	std::thread tInitialise( * RenderClass::Initialise );
 
+
 	tInitialise.join();
-
-	std::cout << "Done!" << std::endl;
-
+#ifdef DEBUG
+	std::cout << "SDL and OpenGL has been initialised." << std::endl;
+#endif
 	std::thread tTimer1(timer1);
 	
 	tTimer1.join();
-	return 0;
+	RenderClass::PissOff();
 }
  
 void timer1()

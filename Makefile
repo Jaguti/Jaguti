@@ -11,7 +11,7 @@ element.o : element.cpp element.h
 	g++ -Wall -g -c element.cpp -std=c++11 -pthread 
 
 render.o : render.cpp
-	g++ -Wall -g -c render.cpp -std=gnu++11 -pthread -D_GLIBCXX_USE_NANOSLEEP
+	g++ -Wall -g -c render.cpp -std=gnu++11 -pthread -D_GLIBCXX_USE_NANOSLEEP -DDEBUG
 
 oldjaguti : main.o button.o element.o render.o
 	g++ -g button.o main.o element.o -o jaguti -lSDL -lSDL_image -lSDL_mixer -lGL -lSOIL 

@@ -70,7 +70,17 @@ namespace Jaguti
 		}
 		*/
 	}
-}
+	
+	void RenderClass::PissOff()
+	{
+		glDisable(GL_BLEND);
+		SDL_Quit();
+#ifdef DEBUG
+		std::cout << "Adieu!" << std::endl;
+#endif
+	}
+	
+} // namespace Jaguti 
 
 /*void LoadAll()
 {
